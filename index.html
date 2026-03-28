@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ClawChain | Runtime Safety Layer for Autonomous Coding Agents</title>
+  <meta name="description" content="ClawChain is a runtime safety layer for autonomous coding agents. Discover live sessions, route them into monitored execution, restore destructive deletes, and export EVM-verifiable proof.">
+  <meta name="keywords" content="ClawChain, coding agent safety, runtime control plane, delete recovery, proof export, EVM verification, AI agent monitoring">
+  <meta property="og:title" content="ClawChain | Runtime Safety Layer for Autonomous Coding Agents">
+  <meta property="og:description" content="Control high-privilege coding agents with monitored execution, snapshot recovery, and verifiable proof.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" href="assets/clawchain-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="assets/app.js" defer></script>
+</head>
+<body>
+  <div class="page-shell">
+    <div class="glow glow-a"></div>
+    <div class="glow glow-b"></div>
+    <div class="grid-noise"></div>
+
+    <header class="site-nav" id="top">
+      <div class="container nav-inner">
+        <a class="brand" href="#top" aria-label="ClawChain home">
+          <img class="brand-mark" src="assets/clawchain-mark.svg" alt="ClawChain logo" width="42" height="42">
+          <div class="brand-copy">
+            <span class="brand-name">ClawChain</span>
+            <span class="brand-subtitle">runtime safety layer for coding agents</span>
+          </div>
+        </a>
+
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
+        <nav class="nav-links" id="navLinks" aria-label="Homepage sections">
+          <a href="#product">Product</a>
+          <a href="#surface">Console</a>
+          <a href="#workflow">Workflow</a>
+          <a href="#deploy">Deploy</a>
+          <a href="#architecture">Architecture</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero section" id="hero">
+        <div class="container hero-layout">
+          <div class="hero-copy reveal">
+            <div class="eyebrow">Runtime safety for high-privilege agent execution</div>
+            <h1>Control autonomous coding agents before risky actions become irreversible loss.</h1>
+            <p class="hero-lead">
+              ClawChain is the operator-facing control plane around agentic engineering. It discovers live coding-agent
+              sessions, routes them into monitored execution, preserves snapshot-backed recovery material before destructive
+              deletes complete, and exports proof that can be checked against an EVM anchor.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#deploy">Deploy the System</a>
+              <a class="btn btn-secondary" href="#surface">See the Product Surface</a>
+            </div>
+            <div class="signal-row">
+              <div class="signal-pill">Live session discovery</div>
+              <div class="signal-pill">Snapshot-backed restore</div>
+              <div class="signal-pill">Readable proof export</div>
+              <div class="signal-pill">EVM verification</div>
+            </div>
+            <div class="hero-metrics">
+              <article class="metric-card">
+                <span class="metric-label">Primary workflow</span>
+                <strong>Discover → Join Monitor → Restore → Verify</strong>
+              </article>
+              <article class="metric-card">
+                <span class="metric-label">Operator promise</span>
+                <strong>Recoverable, auditable, and actionable</strong>
+              </article>
+              <article class="metric-card">
+                <span class="metric-label">Current focus</span>
+                <strong>Delete-risk capture with narrow, explicit claims</strong>
+              </article>
+            </div>
+          </div>
+
+          <div class="hero-visual reveal reveal-delay-1">
+            <div class="hero-badge hero-badge-top">
+              <span class="badge-dot live"></span>
+              <span>Live coding agent detected</span>
+            </div>
+            <div class="hero-badge hero-badge-right">
+              <strong>Delete captured</strong>
+              <span>Snapshot vault updated before loss finalized</span>
+            </div>
+            <div class="hero-badge hero-badge-bottom">
+              <strong>Proof anchored</strong>
+              <span>anchor_backend: evm:31337</span>
+            </div>
+
+            <div class="screen-shell">
+              <div class="screen-topbar">
+                <span></span><span></span><span></span>
+                <div class="screen-title">ClawChain Operator Console</div>
+              </div>
+              <img src="assets/dashboard.png" alt="ClawChain dashboard screenshot" class="dashboard-shot">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section product-strip">
+        <div class="container strip-panel reveal">
+          <div class="strip-copy">
+            <span class="strip-label">Positioning</span>
+            <p>Not a blockchain demo, not a passive audit log. ClawChain is the runtime control layer around risky coding-agent execution.</p>
+          </div>
+          <div class="strip-items">
+            <div>intervene on the live session</div>
+            <div>preserve recovery material</div>
+            <div>restore the target path</div>
+            <div>export operator-readable proof</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="product">
+        <div class="container">
+          <div class="section-head reveal">
+            <div class="section-kicker">Product</div>
+            <h2>A runtime product for teams who cannot treat agent behavior as a black box.</h2>
+            <p>ClawChain is built for the moment where an operator needs to understand what an agent is doing, stop trusting blind execution, and keep recovery and evidence coherent under pressure.</p>
+          </div>
+          <div class="value-grid">
+            <article class="value-card reveal">
+              <div class="card-index">01</div>
+              <h3>Runtime Intervention</h3>
+              <p>Watch live agent sessions, surface the risky ones, and move them into a controlled execution path with monitored resume and handoff commands.</p>
+            </article>
+            <article class="value-card reveal reveal-delay-1">
+              <div class="card-index">02</div>
+              <h3>Recovery Before Regret</h3>
+              <p>Capture delete-style destructive operations early enough to keep a restorable snapshot vault instead of reconstructing evidence after the damage is done.</p>
+            </article>
+            <article class="value-card reveal reveal-delay-2">
+              <div class="card-index">03</div>
+              <h3>Operator-Readable Proof</h3>
+              <p>Proof stays inspectable by engineers: recovery context, receipts, submissions, anchor references, and field checks all land in a readable log.</p>
+            </article>
+            <article class="value-card reveal">
+              <div class="card-index">04</div>
+              <h3>Verifiable Execution Trail</h3>
+              <p>When local EVM bootstrap is enabled, the same workflow closes with a commitment anchor that can be validated against the monitored session.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="surface">
+        <div class="container surface-layout">
+          <div class="surface-copy reveal">
+            <div class="section-kicker">Console</div>
+            <h2>The working surface is built for operators, not screenshots.</h2>
+            <p>The product console is where sessions are discovered, monitored routes are started, dangerous operations are reviewed, restores are executed, and proof is exported without dropping into a pile of disconnected scripts.</p>
+            <ul class="feature-list">
+              <li>Live and archived session cards with monitored status</li>
+              <li>Dangerous-operation history with restore controls</li>
+              <li>Session detail view with resume and handoff actions</li>
+              <li>Proof export and chain verification fields in one place</li>
+            </ul>
+          </div>
+          <div class="surface-panel reveal reveal-delay-1">
+            <div class="surface-ribbon">Operator-visible evidence, not hidden background state</div>
+            <div class="screen-shell large-screen">
+              <div class="screen-topbar">
+                <span></span><span></span><span></span>
+                <div class="screen-title">Dashboard · Session Detail · Proof Export</div>
+              </div>
+              <img src="assets/dashboard.png" alt="ClawChain product dashboard" class="dashboard-shot">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="workflow">
+        <div class="container">
+          <div class="section-head reveal">
+            <div class="section-kicker">Workflow</div>
+            <h2>The safety loop is intentionally narrow, explicit, and operational.</h2>
+            <p>ClawChain is strongest where teams actually need decisive help today: monitoring live sessions, handling destructive deletes, restoring targets cleanly, and keeping proof coherent enough to trust.</p>
+          </div>
+          <div class="timeline">
+            <article class="timeline-card reveal">
+              <span class="timeline-step">01</span>
+              <h3>Discover live sessions</h3>
+              <p>Detect running high-privilege coding-agent sessions already active on the host and surface them in the operator view.</p>
+            </article>
+            <article class="timeline-card reveal reveal-delay-1">
+              <span class="timeline-step">02</span>
+              <h3>Join monitored execution</h3>
+              <p>Route the session into the controlled launcher and service path, so the next risky operation happens inside the monitored boundary.</p>
+            </article>
+            <article class="timeline-card reveal reveal-delay-2">
+              <span class="timeline-step">03</span>
+              <h3>Preserve and restore</h3>
+              <p>Capture snapshot-backed recovery material for delete-style risk, then restore the target path and confirm it has been brought back.</p>
+            </article>
+            <article class="timeline-card reveal">
+              <span class="timeline-step">04</span>
+              <h3>Export and verify proof</h3>
+              <p>Generate a readable proof log and, when enabled, validate the same commitment fields against the local EVM backend.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="deploy">
+        <div class="container">
+          <div class="section-head reveal">
+            <div class="section-kicker">Deploy</div>
+            <h2>Bring the runtime up quickly, then test the full operator loop.</h2>
+            <p>The setup path creates or refreshes config, bootstraps the local chain when enabled, starts the service, verifies health, and launches the console surface.</p>
+          </div>
+          <div class="deploy-grid">
+            <article class="terminal-card reveal">
+              <div class="terminal-head">
+                <span></span><span></span><span></span>
+                <div>Windows</div>
+              </div>
+              <pre><code>conda create -y -n ClawChain python=3.12 pip
+conda activate ClawChain
+pip install -r ../ClawChain/requirements.txt
+pip install -e ../ClawChain
+../ClawChain/setup_clawchain.cmd 8888</code></pre>
+            </article>
+            <article class="terminal-card reveal reveal-delay-1">
+              <div class="terminal-head">
+                <span></span><span></span><span></span>
+                <div>Linux / macOS</div>
+              </div>
+              <pre><code>conda create -y -n ClawChain python=3.12 pip
+conda activate ClawChain
+pip install -r ../ClawChain/requirements.txt
+pip install -e ../ClawChain
+bash ../ClawChain/setup_clawchain.sh 8888</code></pre>
+            </article>
+            <article class="terminal-card reveal reveal-delay-2">
+              <div class="terminal-head">
+                <span></span><span></span><span></span>
+                <div>First Product Validation</div>
+              </div>
+              <pre><code>1. Start or locate a live coding-agent session
+2. Open the console
+3. Click Join Monitor
+4. Trigger a delete-style action
+5. Restore the target
+6. Export proof
+7. Verify anchor fields</code></pre>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="architecture">
+        <div class="container architecture-layout">
+          <div class="architecture-panel reveal">
+            <div class="screen-shell architecture-shell">
+              <div class="screen-topbar">
+                <span></span><span></span><span></span>
+                <div class="screen-title">Runtime Architecture</div>
+              </div>
+              <img src="assets/architecture.svg" alt="ClawChain architecture diagram" class="architecture-shot">
+            </div>
+          </div>
+          <div class="architecture-copy reveal reveal-delay-1">
+            <div class="section-kicker">Architecture</div>
+            <h2>Local-first control, explicit recovery claims, extensible agent adapters.</h2>
+            <div class="principle-list">
+              <article class="principle-card">
+                <strong>Local-first runtime</strong>
+                <p>Discovery, recovery material, service state, proof storage, and operator actions stay close to the host execution environment.</p>
+              </article>
+              <article class="principle-card">
+                <strong>Narrow and defensible claims</strong>
+                <p>The product is strongest where it can be explicit: delete-risk capture, snapshot restoration, readable proof, and anchor verification.</p>
+              </article>
+              <article class="principle-card">
+                <strong>Extensible integration layer</strong>
+                <p>Codex is the stable path today, with the runtime built around an adapter-friendly model for more agent CLIs over time.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section final-cta" id="docs">
+        <div class="container cta-panel reveal">
+          <div>
+            <div class="section-kicker">Next Step</div>
+            <h2>Use this page to present the product. Use the console when you need control.</h2>
+            <p>ClawChain is a product surface for runtime intervention around autonomous coding agents. The landing page explains the system; the operator console is where the actual recovery and verification work happens.</p>
+          </div>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="../ClawChain/README.md" target="_blank" rel="noopener">Open README</a>
+            <a class="btn btn-secondary" href="../ClawChain/README.zh-CN.md" target="_blank" rel="noopener">中文说明</a>
+            <a class="btn btn-secondary" href="../ClawChain/DEVELOPER.md" target="_blank" rel="noopener">Developer Guide</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <strong>ClawChain</strong>
+          <span>Runtime safety layer for high-privilege coding agents.</span>
+        </div>
+        <a href="#top">Back to top</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
