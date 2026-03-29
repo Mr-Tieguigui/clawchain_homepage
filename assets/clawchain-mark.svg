@@ -1,42 +1,45 @@
 <svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="panel" x1="40" y1="28" x2="216" y2="228" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#0C1524"/>
-      <stop offset="1" stop-color="#102038"/>
+    <linearGradient id="panel" x1="30" y1="24" x2="220" y2="226" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1422"/>
+      <stop offset="1" stop-color="#12243C"/>
     </linearGradient>
-    <linearGradient id="chain" x1="74" y1="86" x2="180" y2="180" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#B5D0FF"/>
-      <stop offset="0.58" stop-color="#58DFD4"/>
-      <stop offset="1" stop-color="#85DF6A"/>
+    <linearGradient id="ring" x1="74" y1="72" x2="184" y2="184" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C8DCFF"/>
+      <stop offset="0.58" stop-color="#5AE0D4"/>
+      <stop offset="1" stop-color="#8CDD6F"/>
     </linearGradient>
-    <linearGradient id="claw" x1="156" y1="48" x2="210" y2="104" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#FFC27D"/>
-      <stop offset="1" stop-color="#FF9D72"/>
+    <linearGradient id="claw" x1="166" y1="46" x2="214" y2="96" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFC88B"/>
+      <stop offset="1" stop-color="#FF956B"/>
     </linearGradient>
-    <filter id="glow" x="0" y="0" width="256" height="256" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-      <feDropShadow dx="0" dy="20" stdDeviation="24" flood-color="#06111D" flood-opacity="0.34"/>
+    <filter id="drop" x="0" y="0" width="256" height="256" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="22" stdDeviation="24" flood-color="#06111D" flood-opacity="0.34"/>
     </filter>
   </defs>
-  <g filter="url(#glow)">
-    <rect x="28" y="24" width="200" height="200" rx="52" fill="url(#panel)"/>
-    <rect x="28.5" y="24.5" width="199" height="199" rx="51.5" stroke="#FFFFFF" stroke-opacity="0.08"/>
-    <circle cx="86" cy="84" r="44" fill="#B5D0FF" fill-opacity="0.07"/>
-    <circle cx="178" cy="176" r="54" fill="#58DFD4" fill-opacity="0.05"/>
+  <g filter="url(#drop)">
+    <rect x="28" y="24" width="200" height="200" rx="54" fill="url(#panel)"/>
+    <rect x="28.5" y="24.5" width="199" height="199" rx="53.5" stroke="#FFFFFF" stroke-opacity="0.08"/>
+    <circle cx="82" cy="84" r="44" fill="#BFD7FF" fill-opacity="0.08"/>
+    <circle cx="182" cy="170" r="58" fill="#57DDD1" fill-opacity="0.05"/>
 
-    <g stroke="url(#chain)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M96 82H142C166 82 186 102 186 126C186 150 166 170 142 170H112"/>
-      <path d="M160 174H114C90 174 70 154 70 130C70 106 90 86 114 86H144"/>
+    <g stroke="url(#ring)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M96 80H138C164 80 186 102 186 128C186 154 164 176 138 176H110"/>
+      <path d="M160 176H118C92 176 70 154 70 128C70 102 92 80 118 80H150"/>
     </g>
 
     <g stroke="#0D1726" stroke-width="18" stroke-linecap="round">
-      <path d="M139 85H163"/>
-      <path d="M93 171H117"/>
+      <path d="M140 80H162"/>
+      <path d="M94 176H116"/>
     </g>
 
+    <circle cx="128" cy="128" r="12" fill="#EAF3FF" fill-opacity="0.95"/>
+    <circle cx="128" cy="128" r="4" fill="#0D1726"/>
+
     <g stroke="url(#claw)" stroke-width="10" stroke-linecap="round">
-      <path d="M166 55L188 34"/>
-      <path d="M184 76L210 52"/>
-      <path d="M175 97L201 73"/>
+      <path d="M168 54L190 34"/>
+      <path d="M186 74L212 50"/>
+      <path d="M176 96L202 72"/>
     </g>
   </g>
 </svg>

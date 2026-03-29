@@ -15,17 +15,18 @@
   <link rel="stylesheet" href="assets/styles.css">
   <script src="assets/app.js" defer></script>
 </head>
-<body>
-  <div class="page-shell">
-    <div class="page-glow page-glow-a"></div>
-    <div class="page-glow page-glow-b"></div>
+<body data-theme="dark">
+  <div class="page-wrapper">
+    <div class="page-grid"></div>
+    <div class="page-noise"></div>
 
-    <nav class="nav">
-      <div class="nav-inner container">
-        <a class="nav-brand" href="#top" aria-label="ClawChain homepage">
-          <img src="assets/clawchain-mark.svg" alt="ClawChain logo" width="30" height="30">
-          <span>ClawChain</span>
+    <nav class="nav" id="top" aria-label="Main navigation">
+      <div class="container nav-inner">
+        <a href="#top" class="nav-brand" aria-label="ClawChain homepage">
+          <img src="assets/clawchain-mark.svg" class="nav-icon" alt="ClawChain logo" width="30" height="30">
+          <div class="nav-wordmark"><span>Claw</span><span>Chain</span></div>
         </a>
+        <button class="nav-mobile-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
         <div class="nav-links" id="navLinks">
           <a href="#monitor">Monitor</a>
           <a href="#quickstart">Quick Start</a>
@@ -33,60 +34,88 @@
           <a href="#agents">Agents</a>
           <a href="#operations">Operations</a>
           <a href="#screens">Session Detail</a>
-        </div>
-        <div class="nav-actions">
-          <a class="nav-button" href="../ClawChain/README.md" target="_blank" rel="noopener">Docs</a>
-          <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
+          <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
+            <span class="theme-toggle-track">
+              <span class="theme-toggle-thumb"></span>
+            </span>
+            <span class="theme-toggle-label">Night</span>
+          </button>
         </div>
       </div>
     </nav>
 
-    <main id="top">
-      <header class="hero">
-        <div class="hero-bg"></div>
-        <div class="container hero-inner">
-          <div class="goal-tags">
-            <span class="goal-tag goal-recover">Recoverable</span>
-            <span class="goal-tag goal-audit">Auditable</span>
-            <span class="goal-tag goal-verify">Verifiable</span>
+    <main>
+      <section class="hero section" id="hero">
+        <div class="hero-bg-blobs">
+          <div class="hero-blob hero-blob-1"></div>
+          <div class="hero-blob hero-blob-2"></div>
+          <div class="hero-blob hero-blob-3"></div>
+        </div>
+        <div class="container hero-shell">
+          <div class="goal-tags animate-in">
+            <span class="goal-chip goal-chip-recover">Recoverable</span>
+            <span class="goal-chip goal-chip-audit">Auditable</span>
+            <span class="goal-chip goal-chip-verify">Verifiable</span>
           </div>
-          <img src="assets/clawchain-mark.svg" alt="ClawChain mark" class="hero-logo" width="112" height="112">
-          <h1 class="hero-title gradient-text">ClawChain</h1>
-          <p class="hero-subtitle">Runtime safety layer for autonomous coding agents.</p>
-          <p class="hero-tagline">
-            A control surface for high-privilege agent sessions: discover what is live, route execution into a monitored path,
-            preserve recovery material before destructive loss lands, and keep a proof trail strong enough to verify.
+
+          <div class="hero-brand animate-in delay-1">
+            <div class="hero-logo-orbit"></div>
+            <img src="assets/clawchain-mark.svg" alt="ClawChain mark" class="hero-logo" width="118" height="118">
+            <h1 class="hero-title">ClawChain</h1>
+            <p class="hero-subtitle">Runtime safety layer for autonomous coding agents.</p>
+          </div>
+
+          <p class="hero-pitch animate-in delay-2">
+            ClawChain is the operator-facing control surface for high-privilege agent sessions: detect what is live,
+            route execution into a monitored path, preserve recovery material before destructive loss lands,
+            and keep the proof trail coherent enough to verify.
           </p>
-          <div class="hero-actions">
+
+          <div class="hero-ctas animate-in delay-3">
             <a class="btn btn-primary" href="#quickstart">Quick Start</a>
-            <a class="btn btn-secondary" href="#screens">See Session Detail</a>
+            <a class="btn btn-secondary" href="#screens">View Session Detail</a>
+          </div>
+
+          <div class="stats-strip animate-in delay-4">
+            <div class="stat-item">
+              <div class="stat-val">2</div>
+              <div class="stat-label">Validated Agents</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-val">6 / 6</div>
+              <div class="stat-label">Smoke Cases Passed</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-val">31337</div>
+              <div class="stat-label">Local EVM Backend</div>
+            </div>
           </div>
         </div>
-      </header>
+      </section>
 
-      <section class="section intro-band reveal">
+      <section class="section intro-section" id="intro">
         <div class="container intro-grid">
-          <div class="intro-copy">
-            <p class="section-label">Product Intro</p>
-            <h2 class="section-title">Built for the moment when an agent has enough privilege to break real things.</h2>
-            <p class="section-desc">
-              ClawChain is not a passive logger. It is an operator-facing runtime that sits on the path of live coding-agent work,
-              captures destructive intent, keeps recovery material close, and gives teams a clean way to inspect, restore, export,
-              and verify what actually happened.
+          <div class="section-header reveal">
+            <div class="section-badge">Product Intro</div>
+            <h2>Built for the moment when an agent has enough privilege to break real things.</h2>
+            <p>
+              ClawChain is not a passive logger. It sits on the execution path of live coding-agent work,
+              keeps recovery material near the operator, exposes the dangerous path in a readable console,
+              and turns intervention, restore, proof export, and verification into one continuous flow.
             </p>
           </div>
-          <div class="intro-stack">
-            <article class="intro-card intro-card-blue">
-              <span class="intro-kicker">Live Control</span>
-              <h3>Discover and route active sessions without rebuilding the workflow from scratch.</h3>
+          <div class="intro-cards reveal reveal-delay-1">
+            <article class="intro-card intro-card-primary card">
+              <div class="intro-card-label">Live Control</div>
+              <h3>Discover and route active sessions instead of forcing a separate workflow.</h3>
             </article>
-            <article class="intro-card intro-card-cyan">
-              <span class="intro-kicker">Recovery First</span>
-              <h3>Preserve snapshots before deletes, moves, and integrity mutations turn into irreversible loss.</h3>
+            <article class="intro-card intro-card-cyan card">
+              <div class="intro-card-label">Recovery First</div>
+              <h3>Snapshot-backed recovery is preserved before deletes, moves, truncates, and integrity mutations land.</h3>
             </article>
-            <article class="intro-card intro-card-green">
-              <span class="intro-kicker">Proof Path</span>
-              <h3>Export verifiable evidence and anchor the recovery trail against the chain backend when enabled.</h3>
+            <article class="intro-card intro-card-green card">
+              <div class="intro-card-label">Proof Path</div>
+              <h3>Receipts, impact sets, and anchor verification remain readable enough for operators to trust.</h3>
             </article>
           </div>
         </div>
@@ -95,93 +124,110 @@
       <section class="section monitor-section" id="monitor">
         <div class="container monitor-grid">
           <div class="monitor-copy reveal">
-            <p class="section-label">clawchain-monitor</p>
-            <h2 class="section-title monitor-title">The runtime stream should read like a real operator surface, not a demo prop.</h2>
-            <p class="section-desc">
-              The monitor layer is meant to stay close to actual usage: live session discovery, controlled relaunch, destructive-op capture,
-              snapshot preservation, proof export, and chain verification. The stream on the right cycles through traces from validated Codex,
-              Claude Code, smoke-report, and proof-verification paths.
+            <div class="section-badge">clawchain-monitor</div>
+            <h2>The runtime stream should feel operational, not theatrical.</h2>
+            <p>
+              This monitor surface is shaped around the real flow you have already tested: live session discovery,
+              controlled relaunch, dangerous-op capture, snapshot preservation, restore, proof export, and chain verification.
+              The terminal cycles through traces from validated Codex and Claude Code runs, the dangerous-ops smoke report,
+              and proof verification output.
             </p>
             <div class="monitor-facts">
-              <article class="fact-card">
-                <span class="fact-label">Validated Paths</span>
+              <article class="fact-card card">
+                <span class="fact-label">Validated Path</span>
                 <strong>Codex + Claude Code</strong>
-                <p>Both have working monitored loops in the current integration branch.</p>
+                <p>Both are already running through monitored relaunch, restore, and proof export.</p>
               </article>
-              <article class="fact-card">
-                <span class="fact-label">Dangerous-Ops Smoke</span>
-                <strong>6 / 6 passed</strong>
-                <p>Delete, move, config mutation, file edit, truncate, and secret access are exercised in the smoke report.</p>
+              <article class="fact-card card">
+                <span class="fact-label">Smoke Result</span>
+                <strong>All critical dangerous-op checks passed</strong>
+                <p>Delete, move, config mutation, file edit, truncate, and secret access are covered.</p>
               </article>
-              <article class="fact-card">
-                <span class="fact-label">Chain Verification</span>
-                <strong>impact sets + receipts ok</strong>
-                <p>Anchor receipts, impact sets, and chain verification are surfaced as operator-readable checks.</p>
+              <article class="fact-card card">
+                <span class="fact-label">Verification</span>
+                <strong>Impact sets, receipts, and chain checks stay inspectable</strong>
+                <p>The operator can export and verify the exact recovery trail rather than infer it.</p>
               </article>
             </div>
           </div>
 
-          <div class="terminal-shell reveal reveal-delay-1">
-            <div class="terminal-head">
+          <div class="terminal-card terminal-monitor reveal reveal-delay-1">
+            <div class="terminal-header">
               <div class="terminal-dots">
-                <span class="dot dot-red"></span>
-                <span class="dot dot-yellow"></span>
-                <span class="dot dot-green"></span>
+                <div class="terminal-dot r"></div>
+                <div class="terminal-dot y"></div>
+                <div class="terminal-dot g"></div>
               </div>
-              <div class="terminal-label">clawchain-monitor</div>
-              <div class="terminal-meta">operator runtime stream</div>
+              <div class="terminal-title">clawchain-monitor / operator runtime stream</div>
             </div>
-            <pre class="terminal-body"><code id="terminalOutput"></code></pre>
+            <div class="terminal-body" id="terminalOutputWrap">
+              <code id="terminalOutput"></code>
+              <span class="terminal-cursor" aria-hidden="true"></span>
+            </div>
+            <div class="terminal-footer">Live operational traces from validated agent sessions and smoke runs</div>
           </div>
         </div>
       </section>
 
-      <section class="section quickstart-section" id="quickstart">
-        <div class="container quickstart-shell">
-          <div class="section-intro reveal">
-            <p class="section-label">Quick Start</p>
-            <h2 class="section-title">Bring the runtime up, then enter the first controlled loop.</h2>
-            <p class="section-desc">Clone and install once, launch the runtime, then choose the setup path that matches the host OS you are operating on.</p>
+      <section class="section" id="quickstart">
+        <div class="container">
+          <div class="section-header reveal">
+            <div class="section-badge">Quick Start</div>
+            <h2>Bring the runtime up, then enter the first controlled loop.</h2>
+            <p>Clone and install once, start the project, then choose the host-specific setup command that matches your machine.</p>
           </div>
 
-          <div class="quickstart-top-grid">
-            <article class="quickstart-panel reveal">
-              <div class="step-no">1</div>
-              <div class="step-copy">
-                <h3>Clone &amp; Install</h3>
-                <pre><code>git clone &lt;your-repo&gt;
-cd ClawChain
-pip install -r requirements.txt
-pip install -e .</code></pre>
+          <div class="quickstart-grid">
+            <article class="terminal-card reveal">
+              <div class="terminal-header">
+                <div class="terminal-dots">
+                  <div class="terminal-dot r"></div>
+                  <div class="terminal-dot y"></div>
+                  <div class="terminal-dot g"></div>
+                </div>
+                <div class="terminal-title">clone-and-install.sh</div>
               </div>
+              <div class="terminal-body compact-terminal"><code><span class="comment"># Clone &amp; install</span>
+<span class="prompt">$</span> git clone &lt;your-repo&gt;
+<span class="prompt">$</span> cd ClawChain
+<span class="prompt">$</span> pip install -r requirements.txt
+<span class="prompt">$</span> pip install -e .</code></div>
+              <div class="terminal-footer">Base install completed</div>
             </article>
-            <article class="quickstart-panel reveal reveal-delay-1">
-              <div class="step-no">2</div>
-              <div class="step-copy">
-                <h3>Start Project</h3>
-                <pre><code>Launch the setup entrypoint
-Wait for service-start + UI health
-Open the operator console
-Join Monitor on the active session</code></pre>
+
+            <article class="terminal-card reveal reveal-delay-1">
+              <div class="terminal-header">
+                <div class="terminal-dots">
+                  <div class="terminal-dot r"></div>
+                  <div class="terminal-dot y"></div>
+                  <div class="terminal-dot g"></div>
+                </div>
+                <div class="terminal-title">start-project.sh</div>
               </div>
+              <div class="terminal-body compact-terminal"><code><span class="comment"># Start project</span>
+<span class="prompt">&gt;</span> run setup entrypoint
+<span class="prompt">&gt;</span> wait for service-start + UI health
+<span class="prompt">&gt;</span> open operator console
+<span class="prompt">&gt;</span> Join Monitor on the active session</code></div>
+              <div class="terminal-footer">Operator console ready</div>
             </article>
           </div>
 
           <div class="platform-grid">
-            <article class="platform-card platform-windows reveal">
-              <div class="platform-head">Windows</div>
+            <article class="platform-card card reveal">
+              <div class="platform-label platform-windows">Windows</div>
               <pre><code>conda create -y -n ClawChain python=3.12 pip
 conda activate ClawChain
 setup_clawchain.cmd 8888</code></pre>
             </article>
-            <article class="platform-card platform-linux reveal reveal-delay-1">
-              <div class="platform-head">Linux</div>
+            <article class="platform-card card reveal reveal-delay-1">
+              <div class="platform-label platform-linux">Linux</div>
               <pre><code>python3 -m venv .venv
 source .venv/bin/activate
 bash setup_clawchain.sh 8888</code></pre>
             </article>
-            <article class="platform-card platform-macos reveal reveal-delay-2">
-              <div class="platform-head">macOS</div>
+            <article class="platform-card card reveal reveal-delay-2">
+              <div class="platform-label platform-macos">macOS</div>
               <pre><code>python3 -m venv .venv
 source .venv/bin/activate
 bash setup_clawchain.sh 8888</code></pre>
@@ -191,200 +237,104 @@ bash setup_clawchain.sh 8888</code></pre>
       </section>
 
       <section class="section section-alt" id="control">
-        <div class="container section-intro center reveal compact-intro">
-          <p class="section-label">Control Sequence</p>
-          <h2 class="section-title">From detection to verified recovery.</h2>
-          <p class="section-desc">The product loop is designed so the operator can move from live discovery to proof-backed intervention without leaving the control surface.</p>
-        </div>
-        <div class="container control-grid control-grid-refined">
-          <article class="control-card reveal">
-            <div class="control-index">01</div>
-            <h3>Session Discovery</h3>
-            <p>Find live high-privilege agent sessions already running on the host.</p>
-          </article>
-          <article class="control-card reveal reveal-delay-1">
-            <div class="control-index">02</div>
-            <h3>Controlled Routing</h3>
-            <p>Switch the session into a monitored launcher path with resume and handoff commands.</p>
-          </article>
-          <article class="control-card reveal reveal-delay-2">
-            <div class="control-index">03</div>
-            <h3>Risk Capture</h3>
-            <p>Detect destructive operations early enough to keep recovery material intact.</p>
-          </article>
-          <article class="control-card reveal">
-            <div class="control-index">04</div>
-            <h3>Snapshot Restore</h3>
-            <p>Recover the affected path from the vault and validate the restored target.</p>
-          </article>
-          <article class="control-card reveal reveal-delay-1">
-            <div class="control-index">05</div>
-            <h3>Proof and Anchor</h3>
-            <p>Export operator-readable proof and verify fields against the configured chain backend.</p>
-          </article>
+        <div class="container">
+          <div class="section-header reveal">
+            <div class="section-badge">Control Sequence</div>
+            <h2>From detection to verified recovery.</h2>
+            <p>The control loop is designed so the operator can move through the risky path without losing context or evidence.</p>
+          </div>
+          <div class="control-grid">
+            <article class="control-card card reveal"><div class="control-index">01</div><h3>Discover</h3><p>Locate live high-privilege agent sessions already active on the host.</p></article>
+            <article class="control-card card reveal reveal-delay-1"><div class="control-index">02</div><h3>Route</h3><p>Switch into a managed launcher path with resume and handoff commands.</p></article>
+            <article class="control-card card reveal reveal-delay-2"><div class="control-index">03</div><h3>Capture</h3><p>Detect destructive actions early enough to preserve snapshot-backed recovery material.</p></article>
+            <article class="control-card card reveal"><div class="control-index">04</div><h3>Restore</h3><p>Recover the affected target from the vault and validate the restored state.</p></article>
+            <article class="control-card card reveal reveal-delay-1"><div class="control-index">05</div><h3>Verify</h3><p>Export proof and check anchor fields against the configured chain backend.</p></article>
+          </div>
         </div>
       </section>
 
       <section class="section" id="agents">
-        <div class="container section-intro center compact-intro reveal">
-          <p class="section-label">What You Get</p>
-          <h2 class="section-title compact-title">Agent adapters designed for the same control plane.</h2>
-          <p class="section-desc">Codex and Claude Code are the validated paths today. The adapter layer is shaped so additional agent CLIs can be added without changing the operator model.</p>
-        </div>
-        <div class="marquee-shell marquee-rtl reveal">
-          <div class="marquee-track agent-track">
-            <article class="agent-card agent-codex">
-              <span class="agent-status live">Validated</span>
-              <h3>Codex</h3>
-              <p>Live detection, Join Monitor, delete capture, restore, proof, and chain verification are already exercised.</p>
-            </article>
-            <article class="agent-card agent-claude">
-              <span class="agent-status live">Validated</span>
-              <h3>Claude Code</h3>
-              <p>Managed relaunch, true session-id recovery, dangerous-op capture, restore, and proof flow are working.</p>
-            </article>
-            <article class="agent-card agent-gemini">
-              <span class="agent-status next">Adapter Ready</span>
-              <h3>Gemini CLI</h3>
-              <p>The generalized shell-agent layer is prepared so Gemini can land on the same runtime surface next.</p>
-            </article>
-            <article class="agent-card agent-cursor">
-              <span class="agent-status next">Planned</span>
-              <h3>Cursor</h3>
-              <p>Candidate desktop workflow for monitored session routing and recovery-surface parity.</p>
-            </article>
-            <article class="agent-card agent-openhands">
-              <span class="agent-status next">Planned</span>
-              <h3>OpenHands</h3>
-              <p>Natural headless target for the same snapshot-first safety and proof export model.</p>
-            </article>
-            <article class="agent-card agent-cline">
-              <span class="agent-status next">Planned</span>
-              <h3>Cline</h3>
-              <p>CLI-shaped path that fits the adapter architecture once the operational hooks are added.</p>
-            </article>
-            <article class="agent-card agent-codex">
-              <span class="agent-status live">Validated</span>
-              <h3>Codex</h3>
-              <p>Live detection, Join Monitor, delete capture, restore, proof, and chain verification are already exercised.</p>
-            </article>
-            <article class="agent-card agent-claude">
-              <span class="agent-status live">Validated</span>
-              <h3>Claude Code</h3>
-              <p>Managed relaunch, true session-id recovery, dangerous-op capture, restore, and proof flow are working.</p>
-            </article>
-            <article class="agent-card agent-gemini">
-              <span class="agent-status next">Adapter Ready</span>
-              <h3>Gemini CLI</h3>
-              <p>The generalized shell-agent layer is prepared so Gemini can land on the same runtime surface next.</p>
-            </article>
-            <article class="agent-card agent-cursor">
-              <span class="agent-status next">Planned</span>
-              <h3>Cursor</h3>
-              <p>Candidate desktop workflow for monitored session routing and recovery-surface parity.</p>
-            </article>
-            <article class="agent-card agent-openhands">
-              <span class="agent-status next">Planned</span>
-              <h3>OpenHands</h3>
-              <p>Natural headless target for the same snapshot-first safety and proof export model.</p>
-            </article>
-            <article class="agent-card agent-cline">
-              <span class="agent-status next">Planned</span>
-              <h3>Cline</h3>
-              <p>CLI-shaped path that fits the adapter architecture once the operational hooks are added.</p>
-            </article>
+        <div class="container">
+          <div class="section-header reveal compact-header">
+            <div class="section-badge">What You Get</div>
+            <h2 class="small-title">Agent adapters designed around one operator model.</h2>
+            <p>Codex and Claude Code are the validated paths today. The adapter layer is already shaped so new agent CLIs can land on the same control surface.</p>
+          </div>
+          <div class="marquee-shell marquee-rtl reveal">
+            <div class="marquee-track agent-track" id="agentTrack">
+              <article class="agent-card card agent-codex"><span class="agent-status live">Validated</span><h3>Codex</h3><p>Live detection, Join Monitor, delete capture, restore, proof, and chain verification are already exercised.</p></article>
+              <article class="agent-card card agent-claude"><span class="agent-status live">Validated</span><h3>Claude Code</h3><p>Managed relaunch, true session-id recovery, dangerous-op capture, restore, and proof flow are working.</p></article>
+              <article class="agent-card card agent-gemini"><span class="agent-status next">Adapter Ready</span><h3>Gemini CLI</h3><p>The generalized shell-agent layer is prepared so Gemini can land on the same runtime surface next.</p></article>
+              <article class="agent-card card agent-cursor"><span class="agent-status next">Planned</span><h3>Cursor</h3><p>Candidate desktop workflow for monitored session routing and recovery-surface parity.</p></article>
+              <article class="agent-card card agent-openhands"><span class="agent-status next">Planned</span><h3>OpenHands</h3><p>Natural headless target for the same snapshot-first safety and proof export model.</p></article>
+              <article class="agent-card card agent-cline"><span class="agent-status next">Planned</span><h3>Cline</h3><p>CLI-shaped path that fits the adapter architecture once the operational hooks are added.</p></article>
+              <article class="agent-card card agent-codex"><span class="agent-status live">Validated</span><h3>Codex</h3><p>Live detection, Join Monitor, delete capture, restore, proof, and chain verification are already exercised.</p></article>
+              <article class="agent-card card agent-claude"><span class="agent-status live">Validated</span><h3>Claude Code</h3><p>Managed relaunch, true session-id recovery, dangerous-op capture, restore, and proof flow are working.</p></article>
+              <article class="agent-card card agent-gemini"><span class="agent-status next">Adapter Ready</span><h3>Gemini CLI</h3><p>The generalized shell-agent layer is prepared so Gemini can land on the same runtime surface next.</p></article>
+              <article class="agent-card card agent-cursor"><span class="agent-status next">Planned</span><h3>Cursor</h3><p>Candidate desktop workflow for monitored session routing and recovery-surface parity.</p></article>
+              <article class="agent-card card agent-openhands"><span class="agent-status next">Planned</span><h3>OpenHands</h3><p>Natural headless target for the same snapshot-first safety and proof export model.</p></article>
+              <article class="agent-card card agent-cline"><span class="agent-status next">Planned</span><h3>Cline</h3><p>CLI-shaped path that fits the adapter architecture once the operational hooks are added.</p></article>
+            </div>
           </div>
         </div>
       </section>
 
       <section class="section section-alt" id="operations">
-        <div class="container section-intro center compact-intro reveal">
-          <p class="section-label">Dangerous Operations</p>
-          <h2 class="section-title compact-title">Smoke-tested against real destructive-op cases.</h2>
-          <p class="section-desc">These cards mirror the current dangerous-ops validation surface: capture, receipts, impact sets, restore, and verification signals that operators can actually inspect.</p>
-        </div>
-        <div class="marquee-shell marquee-ltr reveal">
-          <div class="marquee-track operations-track">
-            <article class="op-card op-delete">
-              <div class="op-head"><span class="op-type">destructive_delete</span><span class="op-pass">PASS</span></div>
-              <p>Delete capture preserved the snapshot and the target was restored from the vault.</p>
-            </article>
-            <article class="op-card op-move">
-              <div class="op-head"><span class="op-type">destructive_move</span><span class="op-pass">PASS</span></div>
-              <p>Move risk was logged, impact sets were written, and receipts stayed coherent.</p>
-            </article>
-            <article class="op-card op-config">
-              <div class="op-head"><span class="op-type">config_integrity_mutation</span><span class="op-pass">PASS</span></div>
-              <p>Configuration mutation surfaced as a policy decision before trusted state drifted too far.</p>
-            </article>
-            <article class="op-card op-edit">
-              <div class="op-head"><span class="op-type">in_place_file_edit</span><span class="op-pass">PASS</span></div>
-              <p>In-place file edit remained visible inside the dangerous-ops smoke path.</p>
-            </article>
-            <article class="op-card op-truncate">
-              <div class="op-head"><span class="op-type">destructive_truncate</span><span class="op-pass">PASS</span></div>
-              <p>Truncate behavior was exercised as a destructive scenario in the Windows smoke report.</p>
-            </article>
-            <article class="op-card op-secret">
-              <div class="op-head"><span class="op-type">secret_access</span><span class="op-pass">PASS</span></div>
-              <p>Secret-access probing was checked alongside chain-log and impact-set verification.</p>
-            </article>
-            <article class="op-card op-delete">
-              <div class="op-head"><span class="op-type">destructive_delete</span><span class="op-pass">PASS</span></div>
-              <p>Delete capture preserved the snapshot and the target was restored from the vault.</p>
-            </article>
-            <article class="op-card op-move">
-              <div class="op-head"><span class="op-type">destructive_move</span><span class="op-pass">PASS</span></div>
-              <p>Move risk was logged, impact sets were written, and receipts stayed coherent.</p>
-            </article>
-            <article class="op-card op-config">
-              <div class="op-head"><span class="op-type">config_integrity_mutation</span><span class="op-pass">PASS</span></div>
-              <p>Configuration mutation surfaced as a policy decision before trusted state drifted too far.</p>
-            </article>
-            <article class="op-card op-edit">
-              <div class="op-head"><span class="op-type">in_place_file_edit</span><span class="op-pass">PASS</span></div>
-              <p>In-place file edit remained visible inside the dangerous-ops smoke path.</p>
-            </article>
-            <article class="op-card op-truncate">
-              <div class="op-head"><span class="op-type">destructive_truncate</span><span class="op-pass">PASS</span></div>
-              <p>Truncate behavior was exercised as a destructive scenario in the Windows smoke report.</p>
-            </article>
-            <article class="op-card op-secret">
-              <div class="op-head"><span class="op-type">secret_access</span><span class="op-pass">PASS</span></div>
-              <p>Secret-access probing was checked alongside chain-log and impact-set verification.</p>
-            </article>
+        <div class="container">
+          <div class="section-header reveal compact-header">
+            <div class="section-badge">Dangerous Operations</div>
+            <h2 class="small-title">Validated against destructive-op smoke cases.</h2>
+            <p>These cards mirror the current dangerous-ops validation surface: capture, receipts, impact sets, restore, and verification signals the operator can actually inspect.</p>
+          </div>
+          <div class="marquee-shell marquee-ltr reveal">
+            <div class="marquee-track operations-track" id="operationsTrack">
+              <article class="op-card card op-delete"><div class="op-head"><span class="op-type">destructive_delete</span><span class="op-pass">PASS</span></div><p>Delete capture preserved the snapshot and the target was restored from the vault.</p></article>
+              <article class="op-card card op-move"><div class="op-head"><span class="op-type">destructive_move</span><span class="op-pass">PASS</span></div><p>Move risk was logged, impact sets were written, and receipts stayed coherent.</p></article>
+              <article class="op-card card op-config"><div class="op-head"><span class="op-type">config_integrity_mutation</span><span class="op-pass">PASS</span></div><p>Configuration mutation surfaced as a policy decision before trusted state drifted too far.</p></article>
+              <article class="op-card card op-edit"><div class="op-head"><span class="op-type">in_place_file_edit</span><span class="op-pass">PASS</span></div><p>In-place file edit remained visible inside the dangerous-ops smoke path.</p></article>
+              <article class="op-card card op-truncate"><div class="op-head"><span class="op-type">destructive_truncate</span><span class="op-pass">PASS</span></div><p>Truncate behavior was exercised as a destructive scenario in the Windows smoke report.</p></article>
+              <article class="op-card card op-secret"><div class="op-head"><span class="op-type">secret_access</span><span class="op-pass">PASS</span></div><p>Secret-access probing was checked alongside chain-log and impact-set verification.</p></article>
+              <article class="op-card card op-delete"><div class="op-head"><span class="op-type">destructive_delete</span><span class="op-pass">PASS</span></div><p>Delete capture preserved the snapshot and the target was restored from the vault.</p></article>
+              <article class="op-card card op-move"><div class="op-head"><span class="op-type">destructive_move</span><span class="op-pass">PASS</span></div><p>Move risk was logged, impact sets were written, and receipts stayed coherent.</p></article>
+              <article class="op-card card op-config"><div class="op-head"><span class="op-type">config_integrity_mutation</span><span class="op-pass">PASS</span></div><p>Configuration mutation surfaced as a policy decision before trusted state drifted too far.</p></article>
+              <article class="op-card card op-edit"><div class="op-head"><span class="op-type">in_place_file_edit</span><span class="op-pass">PASS</span></div><p>In-place file edit remained visible inside the dangerous-ops smoke path.</p></article>
+              <article class="op-card card op-truncate"><div class="op-head"><span class="op-type">destructive_truncate</span><span class="op-pass">PASS</span></div><p>Truncate behavior was exercised as a destructive scenario in the Windows smoke report.</p></article>
+              <article class="op-card card op-secret"><div class="op-head"><span class="op-type">secret_access</span><span class="op-pass">PASS</span></div><p>Secret-access probing was checked alongside chain-log and impact-set verification.</p></article>
+            </div>
           </div>
         </div>
       </section>
 
       <section class="section" id="screens">
-        <div class="container section-intro center reveal">
-          <p class="section-label">Session Detail</p>
-          <h2 class="section-title">The operator console stays anchored in the live session.</h2>
-          <p class="section-desc">One surface keeps the session list readable; the detail view carries the evidence roots, dangerous operations, restore actions, and chain-verification context needed during intervention.</p>
-        </div>
-        <div class="container screens-grid">
-          <article class="screen-card reveal">
-            <div class="screen-title">Dashboard</div>
-            <img src="assets/dashboard.png" alt="ClawChain dashboard screenshot" class="screen-image">
-          </article>
-          <article class="screen-card reveal reveal-delay-1">
-            <div class="screen-title">Session Detail</div>
-            <img src="assets/Session_detail.jpg" alt="ClawChain session detail screenshot" class="screen-image session-image">
-          </article>
+        <div class="container">
+          <div class="section-header reveal">
+            <div class="section-badge">Session Detail</div>
+            <h2>The operator console stays anchored in the live session.</h2>
+            <p>One surface keeps the session list readable. The detail view carries evidence roots, dangerous operations, restore actions, and chain-verification context during intervention.</p>
+          </div>
+          <div class="screens-grid">
+            <article class="screen-card card reveal">
+              <div class="screen-title">Dashboard</div>
+              <img src="assets/dashboard.png" alt="ClawChain dashboard screenshot" class="screen-image">
+            </article>
+            <article class="screen-card card reveal reveal-delay-1">
+              <div class="screen-title">Session Detail</div>
+              <img src="assets/Session_detail.jpg" alt="ClawChain session detail screenshot" class="screen-image session-image">
+            </article>
+          </div>
         </div>
       </section>
 
-      <footer class="footer">
+      <footer class="footer" id="contact">
         <div class="container footer-inner">
           <div class="footer-brand">
             <img src="assets/clawchain-mark.svg" alt="ClawChain mark" width="24" height="24">
             <span>ClawChain</span>
           </div>
           <div class="footer-links">
-            <a href="../ClawChain/README.md" target="_blank" rel="noopener">README</a>
-            <a href="../ClawChain/README.zh-CN.md" target="_blank" rel="noopener">中文说明</a>
-            <a href="../ClawChain/DEVELOPER.md" target="_blank" rel="noopener">Developer</a>
+            <a href="#monitor">Monitor</a>
+            <a href="#quickstart">Quick Start</a>
+            <a href="#screens">Session Detail</a>
           </div>
         </div>
       </footer>
