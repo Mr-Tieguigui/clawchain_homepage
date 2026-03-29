@@ -465,6 +465,66 @@ body[data-theme='light'] .theme-toggle-thumb {
   margin-top: 28px;
 }
 
+.mission-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  width: min(980px, 100%);
+  margin-top: 42px;
+}
+
+.mission-card {
+  position: relative;
+  overflow: hidden;
+  padding: 24px 22px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--card-strong);
+  box-shadow: var(--shadow-soft);
+  text-align: left;
+}
+
+.mission-card::after {
+  content: '';
+  position: absolute;
+  inset: auto -20px -28px auto;
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  filter: blur(24px);
+  opacity: 0.55;
+}
+
+.mission-safety::after {
+  background: color-mix(in srgb, var(--danger) 28%, transparent);
+}
+
+.mission-recoverability::after {
+  background: color-mix(in srgb, var(--accent-3) 28%, transparent);
+}
+
+.mission-traceability::after {
+  background: color-mix(in srgb, var(--accent-2) 28%, transparent);
+}
+
+.mission-title {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 38px);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+}
+
+.mission-copy {
+  position: relative;
+  z-index: 1;
+  margin-top: 8px;
+  color: var(--muted);
+  line-height: 1.62;
+  font-size: 15px;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -491,55 +551,6 @@ body[data-theme='light'] .theme-toggle-thumb {
 .btn-secondary {
   background: var(--card);
   color: var(--text);
-}
-
-.stats-strip {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
-  width: min(920px, 100%);
-  margin-top: 38px;
-}
-
-.stat-item {
-  position: relative;
-  overflow: hidden;
-  padding: 24px 18px;
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border);
-  background: var(--card-strong);
-  box-shadow: var(--shadow-soft);
-}
-
-.stat-item::after {
-  content: '';
-  position: absolute;
-  right: -16px;
-  bottom: -24px;
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
-  background: color-mix(in srgb, var(--accent) 14%, transparent);
-  filter: blur(24px);
-}
-
-.stat-val {
-  position: relative;
-  z-index: 1;
-  font-family: var(--font-display);
-  font-size: clamp(32px, 4vw, 44px);
-  font-weight: 800;
-  letter-spacing: -0.06em;
-}
-
-.stat-label {
-  position: relative;
-  z-index: 1;
-  margin-top: 8px;
-  color: var(--muted);
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
 }
 
 .section-header {
@@ -678,7 +689,7 @@ body[data-theme='light'] .theme-toggle-thumb {
 }
 
 .terminal-body-large {
-  min-height: 540px;
+  min-height: 600px;
 }
 
 .compact-terminal {
@@ -695,7 +706,7 @@ body[data-theme='light'] .theme-toggle-thumb {
 
 .stream-frame {
   display: grid;
-  gap: 12px;
+  gap: 16px;
 }
 
 .stream-frame-header {
@@ -732,7 +743,7 @@ body[data-theme='light'] .theme-toggle-thumb {
 
 .stream-lines {
   display: grid;
-  gap: 8px;
+  gap: 12px;
 }
 
 .stream-line {
@@ -783,6 +794,9 @@ body[data-theme='light'] .theme-toggle-thumb {
 
 .stream-text {
   color: var(--text);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  line-height: 1.68;
 }
 
 .stream-line.meta .stream-badge {
@@ -841,6 +855,45 @@ body[data-theme='light'] .theme-toggle-thumb {
 
 .prompt {
   color: var(--accent-2);
+}
+
+.command-list {
+  display: grid;
+  gap: 12px;
+}
+
+.command-row {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: var(--terminal-row);
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+
+.command-row span:last-child {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  line-height: 1.62;
+}
+
+.comment-row {
+  grid-template-columns: 1fr;
+  background: transparent;
+  padding: 0;
+}
+
+.single-command-list {
+  align-content: center;
+  min-height: 100%;
+}
+
+.single-command-list .command-row:not(.comment-row) {
+  min-height: 72px;
+  align-items: center;
 }
 
 .comment {
@@ -1273,6 +1326,7 @@ body[data-theme='light'] .theme-toggle-thumb {
 
 @media (max-width: 1100px) {
   .stats-strip,
+  .mission-grid,
   .quickstart-grid,
   .platform-grid,
   .screens-grid,
@@ -1349,8 +1403,12 @@ body[data-theme='light'] .theme-toggle-thumb {
     min-height: 244px;
   }
 
+  .mission-card {
+    padding: 22px 20px;
+  }
+
   .terminal-body-large {
-    min-height: 500px;
+    min-height: 520px;
   }
 
   .footer-inner {

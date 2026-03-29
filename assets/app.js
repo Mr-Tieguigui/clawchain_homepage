@@ -135,14 +135,14 @@ document.addEventListener('DOMContentLoaded', function () {
       title: 'Codex / monitored restore',
       tag: 'validated path',
       lines: [
-        { stamp: '09:41:12', kind: 'meta', badge: 'discover', text: 'resume:019d2e27-b03f-7963-ba48-44f68d672f26 detected inside E:/Paper/2026/openclawchain/test7' },
-        { stamp: '09:41:14', kind: 'meta', badge: 'route', text: 'launcher switched into local-operator/codex/test333 with managed resume' },
-        { stamp: '09:41:17', kind: 'danger', badge: 'policy', text: 'destructive_delete raised against E:/.../test9 with restorable classification' },
-        { stamp: '09:41:18', kind: 'ok', badge: 'snapshot', text: 'recovery-12a64889e0cd42c4bd53565530ba918c preserved into recovery-vault/recovery-snapshots' },
+        { stamp: '09:41:12', kind: 'meta', badge: 'discover', text: 'resume:019d2e27-b03f-7963-ba48-44f68d672f26 detected in test7 workspace' },
+        { stamp: '09:41:14', kind: 'meta', badge: 'route', text: 'launcher routed into local-operator/codex/test333' },
+        { stamp: '09:41:17', kind: 'danger', badge: 'policy', text: 'destructive_delete raised against E:/.../test9 · class=restorable' },
+        { stamp: '09:41:18', kind: 'ok', badge: 'snapshot', text: 'snapshot preserved into recovery-vault/recovery-snapshots' },
         { kind: 'rule' },
-        { stamp: '09:41:22', kind: 'ok', badge: 'restore', text: 'target restored from vault and verified against the expected tree' },
-        { stamp: '09:41:26', kind: 'proof', badge: 'proof', text: 'clawchain-proof-log.v2 exported with batch_seq_no=0 and merkle_root=d5bb8d64...' },
-        { stamp: '09:41:29', kind: 'proof', badge: 'anchor', text: 'evm:31337 confirmed at block=9 with anchor_lookup_found=true' },
+        { stamp: '09:41:22', kind: 'ok', badge: 'restore', text: 'target restored from vault and verified' },
+        { stamp: '09:41:26', kind: 'proof', badge: 'proof', text: 'proof exported with batch_seq_no=0 · merkle_root=d5bb8d64...' },
+        { stamp: '09:41:29', kind: 'proof', badge: 'anchor', text: 'evm:31337 confirmed at block=9 · anchor_lookup_found=true' },
         { stamp: '09:41:31', kind: 'proof', badge: 'verify', text: 'session_id=true · batch_seq_no=true · merkle_root=true' }
       ],
       pause: 2800
@@ -151,13 +151,13 @@ document.addEventListener('DOMContentLoaded', function () {
       title: 'Claude Code / managed handoff',
       tag: 'validated path',
       lines: [
-        { stamp: '10:12:02', kind: 'meta', badge: 'discover', text: 'session 11c55c0a-00e9-4e35-b413-ecf5e3709c94 resolved from ~/.claude/sessions' },
-        { stamp: '10:12:05', kind: 'meta', badge: 'handoff', text: 'original terminal separated from the controlled launcher to avoid unmanaged writes' },
-        { stamp: '10:12:10', kind: 'danger', badge: 'policy', text: 'destructive_move detected inside /data/guiyao/openclawchain/Github with recovery plan prepared' },
-        { stamp: '10:12:14', kind: 'ok', badge: 'events', text: 'invoke_event and policy_decision_event persisted into the chain-log' },
-        { stamp: '10:12:19', kind: 'ok', badge: 'restore', text: 'move rolled back from snapshot set and session detail updated in the operator view' },
+        { stamp: '10:12:02', kind: 'meta', badge: 'discover', text: 'session 11c55c0a-00e9-4e35-b413-ecf5e3709c94 resolved' },
+        { stamp: '10:12:05', kind: 'meta', badge: 'handoff', text: 'controlled handoff separated from the native terminal' },
+        { stamp: '10:12:10', kind: 'danger', badge: 'policy', text: 'destructive_move detected · recovery plan prepared' },
+        { stamp: '10:12:14', kind: 'ok', badge: 'events', text: 'invoke_event + policy_decision_event persisted' },
+        { stamp: '10:12:19', kind: 'ok', badge: 'restore', text: 'move rolled back from snapshot set' },
         { kind: 'rule' },
-        { stamp: '10:12:24', kind: 'proof', badge: 'proof', text: 'impact_set_id=impact-set-1774595948166 exported with consistent session fingerprint' },
+        { stamp: '10:12:24', kind: 'proof', badge: 'proof', text: 'impact_set_id exported with consistent fingerprint' },
         { stamp: '10:12:28', kind: 'proof', badge: 'verify', text: 'anchor_status=confirmed · anchor_field_checks all true' }
       ],
       pause: 3200
@@ -170,8 +170,8 @@ document.addEventListener('DOMContentLoaded', function () {
         { stamp: 'scenario', kind: 'ok', badge: 'pass', text: 'destructive_delete · destructive_move · config_integrity_mutation' },
         { stamp: 'scenario', kind: 'ok', badge: 'pass', text: 'in_place_file_edit · destructive_truncate · secret_access' },
         { kind: 'rule' },
-        { stamp: 'chain-log', kind: 'proof', badge: 'events', text: 'invoke_events_ok · policy_decision_events_ok · anchor_receipts_ok · impact_sets_ok' },
-        { stamp: 'counts', kind: 'proof', badge: 'detail', text: 'invoke_events=6 · policy_decision_events=6 · recovery_planned=3 · impact_sets=3' },
+        { stamp: 'chain-log', kind: 'proof', badge: 'events', text: 'invoke_events_ok · policy_ok · receipts_ok · impact_sets_ok' },
+        { stamp: 'counts', kind: 'proof', badge: 'detail', text: 'invoke_events=6 · policy=6 · recovery_planned=3 · impact_sets=3' },
         { stamp: 'result', kind: 'ok', badge: 'summary', text: 'ALL TESTS PASSED' }
       ],
       pause: 3400
@@ -181,11 +181,11 @@ document.addEventListener('DOMContentLoaded', function () {
       tag: 'evm:31337',
       lines: [
         { stamp: '$', kind: 'meta', badge: 'command', text: 'python -m clawchain.agent_proxy_cli proof --account local-operator --limit 1' },
-        { stamp: 'anchor', kind: 'proof', badge: 'status', text: 'anchor_backend=evm:31337 · anchor_mode=evm-anchored · anchor_status=confirmed' },
+        { stamp: 'anchor', kind: 'proof', badge: 'status', text: 'backend=evm:31337 · mode=evm-anchored · status=confirmed' },
         { stamp: 'field', kind: 'proof', badge: 'checks', text: 'session_id=true · batch_seq_no=true · merkle_root=true' },
-        { stamp: 'receipt', kind: 'proof', badge: 'counts', text: 'anchor_receipts_count=6 · impact_sets_count=3 · chain_verify_ok=true' },
+        { stamp: 'receipt', kind: 'proof', badge: 'counts', text: 'anchor_receipts=6 · impact_sets=3 · chain_verify_ok=true' },
         { kind: 'rule' },
-        { stamp: 'result', kind: 'ok', badge: 'final', text: 'proof trail stayed recoverable, auditable, and verifiable end-to-end' }
+        { stamp: 'result', kind: 'ok', badge: 'final', text: 'recoverable · auditable · verifiable' }
       ],
       pause: 3600
     }
@@ -235,7 +235,7 @@ document.addEventListener('DOMContentLoaded', function () {
       renderFrameInstant(frames[0]);
     } else {
       var frameIndex = 0;
-      var baseDelay = 820;
+      var baseDelay = 1100;
 
       function renderFrame(frame) {
         terminalOutput.innerHTML = [
