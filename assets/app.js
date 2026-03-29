@@ -49,9 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   var sections = navAnchors
-    .map(function (link) {
-      return document.querySelector(link.getAttribute("href"));
-    })
+    .map(function (link) { return document.querySelector(link.getAttribute("href")); })
     .filter(Boolean);
 
   if (sections.length) {
@@ -81,8 +79,8 @@ document.addEventListener("DOMContentLoaded", function () {
     [
       "$ bash ../ClawChain/setup_clawchain.sh 8888",
       "[ok] service-start",
-      "[ok] ui available at http://127.0.0.1:8888",
-      "[ok] chain bootstrap: evm:31337"
+      "[ok] chain bootstrap: evm:31337",
+      "[ok] ui available at http://127.0.0.1:8888"
     ],
     [
       "> Join Monitor",
@@ -97,42 +95,40 @@ document.addEventListener("DOMContentLoaded", function () {
       "[PASS] secret_access"
     ],
     [
-      "[verify] invoke_events_ok",
       "[verify] anchor_receipts_ok",
+      "[verify] impact_sets_ok",
       "[verify] chain_verify_ok",
       "[result] ALL TESTS PASSED"
     ]
   ];
 
-  if (!terminalOutput) {
-    return;
-  }
-
-  if (prefersReducedMotion) {
-    terminalOutput.textContent = frames[0].join(newline);
-    return;
-  }
-
-  var frameIndex = 0;
-
-  function renderFrame() {
-    var lines = frames[frameIndex];
-    terminalOutput.textContent = "";
-    var lineIndex = 0;
-
-    function addLine() {
-      terminalOutput.textContent += lines[lineIndex] + newline;
-      lineIndex += 1;
-      if (lineIndex < lines.length) {
-        setTimeout(addLine, 420);
-      } else {
-        frameIndex = (frameIndex + 1) % frames.length;
-        setTimeout(renderFrame, 1600);
-      }
+  if (terminalOutput) {
+    if (prefersReducedMotion) {
+      terminalOutput.textContent = frames[0].join(newline);
+      return;
     }
 
-    addLine();
-  }
+    var frameIndex = 0;
 
-  renderFrame();
+    function renderFrame() {
+      var lines = frames[frameIndex];
+      terminalOutput.textContent = "";
+      var lineIndex = 0;
+
+      function addLine() {
+        terminalOutput.textContent += lines[lineIndex] + newline;
+        lineIndex += 1;
+        if (lineIndex < lines.length) {
+          setTimeout(addLine, 380);
+        } else {
+          frameIndex = (frameIndex + 1) % frames.length;
+          setTimeout(renderFrame, 1400);
+        }
+      }
+
+      addLine();
+    }
+
+    renderFrame();
+  }
 });

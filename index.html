@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ClawChain | Runtime Safety Layer for Autonomous Coding Agents</title>
-  <meta name="description" content="ClawChain is a runtime safety layer for autonomous coding agents. Discover live sessions, route them into monitored execution, restore destructive actions from snapshots, and verify proof on-chain.">
+  <meta name="description" content="ClawChain is a runtime safety layer for autonomous coding agents. Monitor live sessions, recover destructive actions, and verify the trail with operator-first control.">
   <meta property="og:title" content="ClawChain | Runtime Safety Layer for Autonomous Coding Agents">
-  <meta property="og:description" content="Monitor, recover, and verify high-privilege coding-agent sessions with an operator-facing control plane.">
+  <meta property="og:description" content="Full visibility, zero blind trust. Monitor, recover, and verify high-privilege coding-agent sessions.">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,249 +17,238 @@
 </head>
 <body>
   <div class="page-shell">
-    <div class="halo halo-a"></div>
-    <div class="halo halo-b"></div>
+    <div class="page-glow page-glow-a"></div>
+    <div class="page-glow page-glow-b"></div>
 
-    <header class="nav">
-      <div class="container nav-inner">
+    <nav class="nav">
+      <div class="nav-inner container">
         <a class="nav-brand" href="#top" aria-label="ClawChain homepage">
-          <img src="assets/clawchain-mark.svg" alt="ClawChain logo" width="34" height="34">
+          <img src="assets/clawchain-mark.svg" alt="ClawChain logo" width="30" height="30">
           <span>ClawChain</span>
         </a>
-        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
-        <nav class="nav-links" id="navLinks" aria-label="Homepage navigation">
+        <div class="nav-links" id="navLinks">
           <a href="#product">Product</a>
-          <a href="#examples">Examples</a>
+          <a href="#control">Control</a>
           <a href="#quickstart">Quick Start</a>
+          <a href="#examples">Examples</a>
           <a href="#screens">Screens</a>
-          <a href="../ClawChain/README.md" target="_blank" rel="noopener">Docs</a>
-        </nav>
+        </div>
+        <div class="nav-actions">
+          <a class="nav-button" href="../ClawChain/README.md" target="_blank" rel="noopener">View Docs</a>
+          <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
+        </div>
       </div>
-    </header>
+    </nav>
 
     <main id="top">
-      <section class="hero">
+      <header class="hero">
+        <div class="hero-bg"></div>
         <div class="container hero-inner">
-          <img src="assets/clawchain-mark.svg" alt="ClawChain mark" class="hero-logo" width="132" height="132">
-          <p class="hero-badge">Recoverable · Verifiable · Operator-first</p>
-          <h1 class="hero-title">ClawChain</h1>
-          <p class="hero-subtitle">Runtime safety layer for autonomous coding agents</p>
+          <div class="hero-badge">
+            <span class="status-dot"></span>
+            Runtime Safety Layer
+          </div>
+          <img src="assets/clawchain-mark.svg" alt="ClawChain mark" class="hero-logo" width="96" height="96">
+          <h1 class="hero-title gradient-text">ClawChain</h1>
+          <p class="hero-subtitle">Runtime safety layer for autonomous coding agents.</p>
           <p class="hero-tagline">
-            Discover live high-privilege agent sessions, move them into monitored execution,
-            preserve snapshot-backed recovery material before destructive loss lands, and export
-            proof that can be checked against an EVM anchor.
+            Runtime utility for high-privilege coding agents. Recoverable, verifiable,
+            and operator-first control for the AI-native stack.
           </p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#quickstart">Quick Start</a>
-            <a class="btn btn-secondary" href="#examples">See Validation</a>
+            <a class="btn btn-primary" href="#quickstart">Get Started</a>
+            <a class="btn btn-secondary" href="#screens">View Screens</a>
           </div>
+        </div>
+      </header>
 
-          <div class="hero-terminal reveal">
-            <div class="terminal-shell">
-              <div class="terminal-head">
-                <span class="dot red"></span>
-                <span class="dot yellow"></span>
-                <span class="dot green"></span>
-                <span class="terminal-title">clawchain runtime</span>
-              </div>
-              <pre class="terminal-body"><code id="terminalOutput"></code></pre>
+      <section class="terminal-showcase container reveal">
+        <div class="terminal-shell">
+          <div class="terminal-head">
+            <div class="terminal-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
             </div>
+            <div class="terminal-label">clawchain-monitor</div>
+            <div class="terminal-meta">128x32</div>
           </div>
-
-          <div class="hero-stats reveal reveal-delay-1">
-            <article class="stat-card">
-              <span class="stat-label">Primary flow</span>
-              <strong>Join Monitor → Restore → Proof → Verify</strong>
-            </article>
-            <article class="stat-card">
-              <span class="stat-label">Validated</span>
-              <strong>6 dangerous-op scenarios passed on Windows smoke</strong>
-            </article>
-            <article class="stat-card">
-              <span class="stat-label">Platforms</span>
-              <strong>Linux and Windows primary workflow ready</strong>
-            </article>
-          </div>
+          <pre class="terminal-body"><code id="terminalOutput"></code></pre>
         </div>
       </section>
 
       <section class="section" id="product">
-        <div class="container narrow">
-          <p class="section-label">Product</p>
-          <h2 class="section-title">A control plane around risky agent execution, not a passive log collector.</h2>
-          <p class="section-desc">
-            ClawChain is built for the moment where an operator needs to stop trusting blind execution.
-            It keeps the live session, the recovery material, and the proof trail in one coherent runtime path.
-          </p>
+        <div class="container section-intro center reveal">
+          <p class="section-label">What You Get</p>
+          <h2 class="section-title">Full Visibility. Zero Risk.</h2>
         </div>
-        <div class="container card-grid">
-          <article class="info-card reveal">
-            <h3>Monitor live sessions</h3>
-            <p>Surface the coding-agent sessions already running on the host and route the right one into controlled execution.</p>
+        <div class="container value-grid">
+          <article class="value-card reveal">
+            <div class="value-icon">01</div>
+            <h3>Monitor Live Sessions</h3>
+            <p>Surface the coding-agent sessions already running on the host and route them into controlled execution environments.</p>
           </article>
-          <article class="info-card reveal reveal-delay-1">
-            <h3>Recover destructive actions</h3>
-            <p>Preserve snapshot-backed recovery material before delete-style operations become permanent loss.</p>
+          <article class="value-card reveal reveal-delay-1">
+            <div class="value-icon">02</div>
+            <h3>Recover Destructive Actions</h3>
+            <p>Preserve restorable material before destructive syscalls land, then bring the target path back without reconstructing evidence after the fact.</p>
           </article>
-          <article class="info-card reveal reveal-delay-2">
-            <h3>Verify the trail</h3>
-            <p>Export readable proof logs with receipts, submissions, impact sets, and chain-verifiable anchor fields.</p>
+          <article class="value-card reveal reveal-delay-2">
+            <div class="value-icon">03</div>
+            <h3>Verify the Trail</h3>
+            <p>Readable proof logs, impact sets, anchor receipts, and chain verification fields keep the recovery path defensible.</p>
           </article>
         </div>
       </section>
 
-      <section class="section section-alt" id="examples">
-        <div class="container narrow">
-          <p class="section-label">Examples</p>
-          <h2 class="section-title">Validated against real dangerous operations.</h2>
-          <p class="section-desc">
-            The current product loop is deliberately narrow and explicit. The strongest path today is capturing destructive operations well,
-            restoring cleanly, and keeping evidence and anchor verification dependable.
-          </p>
+      <section class="section section-alt" id="control">
+        <div class="container section-intro center reveal">
+          <p class="section-label">Control Lifecycle</p>
+          <h2 class="section-title">The 5 Stages of Control</h2>
         </div>
-        <div class="container examples-layout">
-          <div class="examples-list reveal">
-            <div class="example-chip">destructive_delete</div>
-            <div class="example-chip">destructive_move</div>
-            <div class="example-chip">config_integrity_mutation</div>
-            <div class="example-chip">in_place_file_edit</div>
-            <div class="example-chip">destructive_truncate</div>
-            <div class="example-chip">secret_access</div>
-
-            <div class="example-flow">
-              <div>1. Detect the live session</div>
-              <div>2. Join Monitor</div>
-              <div>3. Trigger a risky action</div>
-              <div>4. Restore the target path</div>
-              <div>5. Export proof</div>
-              <div>6. Verify chain fields</div>
-            </div>
-          </div>
-
-          <div class="report-card reveal reveal-delay-1">
-            <div class="terminal-head">
-              <span class="dot red"></span>
-              <span class="dot yellow"></span>
-              <span class="dot green"></span>
-              <span class="terminal-title">dangerous-ops smoke report</span>
-            </div>
-            <pre class="report-body"><code>============================================================
-ClawChain Dangerous-Ops Smoke Test Report
-Generated : 2026-03-28 21:29:49
-Platform  : windows
-Account   : dangerous-ops-windows
-============================================================
-
-SCENARIO RESULTS
-  [PASS] destructive_delete
-  [PASS] destructive_move
-  [PASS] config_integrity_mutation
-  [PASS] in_place_file_edit
-  [PASS] destructive_truncate
-  [PASS] secret_access
-
-BLOCKCHAIN / CHAIN-LOG VERIFICATION
-  [PASS] events_written
-  [PASS] invoke_events_ok
-  [PASS] policy_decision_events_ok
-  [PASS] anchor_receipts_ok
-  [PASS] impact_sets_ok
-  [PASS] chain_verify_ok
-
-RESULT: *** ALL TESTS PASSED ***</code></pre>
-          </div>
+        <div class="container lifecycle-grid">
+          <article class="stage-card reveal">
+            <div class="stage-no">1</div>
+            <h3>Join Monitor</h3>
+            <p>Attach the runtime to a live coding-agent session.</p>
+          </article>
+          <article class="stage-card reveal reveal-delay-1">
+            <div class="stage-no">2</div>
+            <h3>Snapshot</h3>
+            <p>Preserve recovery material before loss becomes permanent.</p>
+          </article>
+          <article class="stage-card reveal reveal-delay-2">
+            <div class="stage-no">3</div>
+            <h3>Intercept</h3>
+            <p>Catch destructive or sensitive operations inside the control path.</p>
+          </article>
+          <article class="stage-card reveal">
+            <div class="stage-no">4</div>
+            <h3>Restore</h3>
+            <p>Bring the affected target back from the snapshot vault.</p>
+          </article>
+          <article class="stage-card reveal reveal-delay-1">
+            <div class="stage-no">5</div>
+            <h3>Verify</h3>
+            <p>Anchor proof fields and validate the execution trail.</p>
+          </article>
         </div>
       </section>
 
       <section class="section" id="quickstart">
-        <div class="container narrow">
-          <p class="section-label">Quick Start</p>
-          <h2 class="section-title">Bring the system up, then run the first controlled loop.</h2>
-          <p class="section-desc">
-            Setup initializes config, starts the runtime service, and launches the UI. The first operator loop is then straightforward:
-            Join Monitor, perform the risky action, restore, export proof, and verify.
-          </p>
-        </div>
-        <div class="container quickstart-grid">
-          <article class="terminal-card reveal">
-            <div class="terminal-head">
-              <span class="dot red"></span>
-              <span class="dot yellow"></span>
-              <span class="dot green"></span>
-              <span class="terminal-title">Windows</span>
-            </div>
-            <pre class="terminal-body"><code>conda create -y -n ClawChain python=3.12 pip
-conda activate ClawChain
-pip install -r ../ClawChain/requirements.txt
-pip install -e ../ClawChain
-../ClawChain/setup_clawchain.cmd 8888</code></pre>
-          </article>
-
-          <article class="terminal-card reveal reveal-delay-1">
-            <div class="terminal-head">
-              <span class="dot red"></span>
-              <span class="dot yellow"></span>
-              <span class="dot green"></span>
-              <span class="terminal-title">Linux / macOS</span>
-            </div>
-            <pre class="terminal-body"><code>conda create -y -n ClawChain python=3.12 pip
-conda activate ClawChain
-pip install -r ../ClawChain/requirements.txt
-pip install -e ../ClawChain
+        <div class="container quickstart-shell">
+          <div class="section-intro reveal">
+            <p class="section-label">Get Started</p>
+            <h2 class="section-title">Up and Running in Minutes</h2>
+          </div>
+          <div class="quickstart-list">
+            <article class="quickstart-step reveal">
+              <div class="step-no">1</div>
+              <div class="step-copy">
+                <h3>Install the runtime</h3>
+                <pre><code>pip install -r ../ClawChain/requirements.txt
+pip install -e ../ClawChain</code></pre>
+              </div>
+            </article>
+            <article class="quickstart-step reveal reveal-delay-1">
+              <div class="step-no">2</div>
+              <div class="step-copy">
+                <h3>Start the system</h3>
+                <pre><code>../ClawChain/setup_clawchain.cmd 8888
 bash ../ClawChain/setup_clawchain.sh 8888</code></pre>
-          </article>
-
-          <article class="terminal-card reveal reveal-delay-2">
-            <div class="terminal-head">
-              <span class="dot red"></span>
-              <span class="dot yellow"></span>
-              <span class="dot green"></span>
-              <span class="terminal-title">First operator loop</span>
-            </div>
-            <pre class="terminal-body"><code>1. Start or find a live coding-agent session
-2. Open the UI
-3. Click Join Monitor
-4. Trigger a delete-style action
-5. Restore the target
-6. Export proof
-7. Verify EVM fields</code></pre>
-          </article>
-        </div>
-      </section>
-
-      <section class="section section-alt" id="screens">
-        <div class="container narrow">
-          <p class="section-label">Screens</p>
-          <h2 class="section-title">The operator surface and the runtime shape.</h2>
-          <p class="section-desc">
-            The dashboard is where sessions are monitored, restores are performed, and proof is exported.
-            The architecture view explains how the monitor, vault, proof catalogs, and anchor path fit together.
-          </p>
-        </div>
-        <div class="container screens-grid">
-          <article class="screen-card reveal">
-            <div class="screen-top">Operator Console</div>
-            <img src="assets/dashboard.png" alt="ClawChain operator dashboard screenshot" class="screen-image">
-          </article>
-          <article class="screen-card reveal reveal-delay-1">
-            <div class="screen-top">Runtime Architecture</div>
-            <img src="assets/architecture.svg" alt="ClawChain runtime architecture diagram" class="screen-image architecture-image">
-          </article>
-        </div>
-      </section>
-
-      <section class="section final-cta">
-        <div class="container narrow cta-box reveal">
-          <p class="section-label">Docs</p>
-          <h2 class="section-title">Use the landing page to present the product. Use the console when you need control.</h2>
-          <p class="section-desc">The standalone page explains ClawChain as a product. The sibling repository contains the runtime, UI, and documentation.</p>
-          <div class="hero-actions center-actions">
-            <a class="btn btn-primary" href="../ClawChain/README.md" target="_blank" rel="noopener">Open README</a>
-            <a class="btn btn-secondary" href="../ClawChain/README.zh-CN.md" target="_blank" rel="noopener">中文说明</a>
-            <a class="btn btn-secondary" href="../ClawChain/DEVELOPER.md" target="_blank" rel="noopener">Developer Guide</a>
+              </div>
+            </article>
+            <article class="quickstart-step reveal reveal-delay-2">
+              <div class="step-no">3</div>
+              <div class="step-copy">
+                <h3>Join a live session</h3>
+                <pre><code>Open the UI
+Click Join Monitor
+Trigger a risky action
+Restore and verify</code></pre>
+              </div>
+            </article>
           </div>
         </div>
       </section>
+
+      <section class="section section-alt" id="examples">
+        <div class="container section-intro center reveal">
+          <p class="section-label">Smoke Validation</p>
+          <h2 class="section-title">Dangerous Operations</h2>
+        </div>
+        <div class="container dangerous-grid">
+          <article class="danger-card danger-delete reveal">
+            <div class="danger-head">01 · DELETE</div>
+            <pre><code>[PASS] destructive_delete
+[policy] destructive_delete captured
+[restore] target restored</code></pre>
+          </article>
+          <article class="danger-card danger-green reveal reveal-delay-1">
+            <div class="danger-head">02 · VERIFY</div>
+            <pre><code>[PASS] chain_verify_ok
+[PASS] anchor_receipts_ok
+[PASS] impact_sets_ok</code></pre>
+          </article>
+          <article class="danger-card danger-delete reveal reveal-delay-2">
+            <div class="danger-head">03 · CONFIG</div>
+            <pre><code>[PASS] config_integrity_mutation
+[PASS] destructive_truncate
+[PASS] secret_access</code></pre>
+          </article>
+          <article class="danger-card danger-green reveal">
+            <div class="danger-head">04 · SUMMARY</div>
+            <pre><code>invoke_events_count: 6
+anchor_receipts_count: 6
+impact_sets_count: 3</code></pre>
+          </article>
+        </div>
+        <div class="container validation-band reveal">
+          <div class="validation-copy">
+            <strong>Built-in Validation for Inferred Results</strong>
+            <p>Windows dangerous-ops smoke passed all listed destructive-op scenarios and chain-log checks, ending with <code>ALL TESTS PASSED</code>.</p>
+          </div>
+          <div class="validation-tags">
+            <span>destructive_delete</span>
+            <span>destructive_move</span>
+            <span>config_integrity_mutation</span>
+            <span>chain_verify_ok</span>
+            <span>impact_sets_ok</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="screens">
+        <div class="container section-intro center reveal">
+          <p class="section-label">Operator Surface</p>
+          <h2 class="section-title">Built for Real Intervention</h2>
+          <p class="section-desc">The dashboard is the working surface. The architecture view explains how monitor, vault, proof catalogs, and anchor state fit together.</p>
+        </div>
+        <div class="container screens-grid">
+          <article class="screen-card reveal">
+            <div class="screen-title">Dashboard</div>
+            <img src="assets/dashboard.png" alt="ClawChain dashboard screenshot" class="screen-image">
+          </article>
+          <article class="screen-card reveal reveal-delay-1">
+            <div class="screen-title">Architecture</div>
+            <img src="assets/architecture.svg" alt="ClawChain architecture diagram" class="screen-image architecture-image">
+          </article>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="container footer-inner">
+          <div class="footer-brand">
+            <img src="assets/clawchain-mark.svg" alt="ClawChain mark" width="24" height="24">
+            <span>ClawChain</span>
+          </div>
+          <div class="footer-links">
+            <a href="../ClawChain/README.md" target="_blank" rel="noopener">README</a>
+            <a href="../ClawChain/README.zh-CN.md" target="_blank" rel="noopener">中文说明</a>
+            <a href="../ClawChain/DEVELOPER.md" target="_blank" rel="noopener">Developer</a>
+          </div>
+        </div>
+      </footer>
     </main>
   </div>
 </body>
