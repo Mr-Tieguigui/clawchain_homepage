@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function () {
   var themeLabel = themeToggle ? themeToggle.querySelector('.theme-toggle-label') : null;
   var terminalOutput = document.getElementById('terminalOutput');
   var terminalWrap = document.getElementById('terminalOutputWrap');
-  var newline = String.fromCharCode(10);
   var storedTheme = null;
 
   try {
@@ -27,6 +26,15 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
     themeLabel.textContent = body.getAttribute('data-theme') === 'light' ? 'Day' : 'Night';
+  }
+
+  function escapeHtml(value) {
+    return String(value)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
   }
 
   syncThemeLabel();
@@ -62,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (nav) {
     window.addEventListener('scroll', function () {
-      nav.style.boxShadow = window.scrollY > 10 ? '0 10px 30px rgba(0,0,0,0.14)' : 'none';
+      nav.style.boxShadow = window.scrollY > 10 ? '0 14px 38px rgba(0,0,0,0.14)' : 'none';
     }, { passive: true });
   }
 
@@ -70,26 +78,30 @@ document.addEventListener('DOMContentLoaded', function () {
     Array.prototype.slice.call(document.querySelectorAll('.reveal')).forEach(function (node) {
       node.classList.add('visible');
     });
-  } else {
+  } else if ('IntersectionObserver' in window) {
     var revealObserver = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
-          if (entry.isIntersecting === false) {
+          if (!entry.isIntersecting) {
             return;
           }
           entry.target.classList.add('visible');
           revealObserver.unobserve(entry.target);
         });
       },
-      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+      { threshold: 0.12, rootMargin: '0px 0px -36px 0px' }
     );
 
     Array.prototype.slice.call(document.querySelectorAll('.reveal')).forEach(function (node) {
       revealObserver.observe(node);
     });
+  } else {
+    Array.prototype.slice.call(document.querySelectorAll('.reveal')).forEach(function (node) {
+      node.classList.add('visible');
+    });
   }
 
-  if (navAnchors.length) {
+  if (navAnchors.length && 'IntersectionObserver' in window) {
     var sections = navAnchors
       .map(function (link) {
         return document.querySelector(link.getAttribute('href'));
@@ -100,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function () {
       var sectionObserver = new IntersectionObserver(
         function (entries) {
           entries.forEach(function (entry) {
-            if (entry.isIntersecting === false) {
+            if (!entry.isIntersecting) {
               return;
             }
             var current = '#' + entry.target.id;
@@ -109,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
           });
         },
-        { threshold: 0.44, rootMargin: '-20% 0px -45% 0px' }
+        { threshold: 0.42, rootMargin: '-18% 0px -45% 0px' }
       );
 
       sections.forEach(function (section) {
@@ -119,83 +131,153 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   var frames = [
-    [
-      '[09:41:12] discover: live codex session resume:019d2e27-b03f-7963-ba48-44f68d672f26',
-      '[09:41:13] route: monitored launcher prepared for local-operator/codex/test333',
-      '[09:41:15] service: background runtime ping ok',
-      '[09:41:17] policy: destructive_delete risk=restorable target=E:/.../test9',
-      '[09:41:18] snapshot: recovery-12a64889e0cd42c4bd53565530ba918c preserved',
-      '[09:41:22] restore: target restored from recovery-vault/recovery-snapshots',
-      '[09:41:26] proof: clawchain-proof-log.v2 exported',
-      '[09:41:29] anchor: evm:31337 confirmed block=9',
-      '[09:41:31] verify: session_id=true batch_seq_no=true merkle_root=true'
-    ],
-    [
-      '[10:12:02] discover: live claude session 11c55c0a-00e9-4e35-b413-ecf5e3709c94',
-      '[10:12:05] route: managed claude launcher active',
-      '[10:12:10] policy: destructive_move detected root=/data/guiyao/openclawchain/Github',
-      '[10:12:12] events: invoke_event + policy_decision_event persisted',
-      '[10:12:18] restore: move scenario rolled back from snapshot set',
-      '[10:12:22] proof: impact_set_id=impact-set-1774595948166',
-      '[10:12:26] verify: anchor_lookup_found=true anchor_status=confirmed',
-      '[10:12:29] result: monitored recovery path closed'
-    ],
-    [
-      'ClawChain Dangerous-Ops Smoke Test Report',
-      'Generated : 2026-03-28 21:29:49',
-      'Platform  : windows',
-      'Account   : dangerous-ops-windows',
-      'Root dir  : C:\\Users\\labpc\\AppData\\Local\\Temp\\clawchain-dangerous-ops-1774704579',
-      '[PASS] destructive_delete',
-      '[PASS] destructive_move',
-      '[PASS] config_integrity_mutation',
-      '[PASS] in_place_file_edit',
-      '[PASS] destructive_truncate',
-      '[PASS] secret_access'
-    ],
-    [
-      '$ python -m clawchain.agent_proxy_cli proof --account local-operator --limit 1',
-      'anchor_backend: evm:31337',
-      'anchor_mode: evm-anchored',
-      'anchor_status: confirmed',
-      'impact_sets_count: 3',
-      'anchor_receipts_count: 6',
-      'recorded_risk_reasons: destructive_delete destructive_move config_integrity_mutation',
-      'result: all tests passed'
-    ]
+    {
+      title: 'Codex / monitored restore',
+      tag: 'validated path',
+      lines: [
+        { stamp: '09:41:12', kind: 'meta', badge: 'discover', text: 'resume:019d2e27-b03f-7963-ba48-44f68d672f26 detected inside E:/Paper/2026/openclawchain/test7' },
+        { stamp: '09:41:14', kind: 'meta', badge: 'route', text: 'launcher switched into local-operator/codex/test333 with managed resume' },
+        { stamp: '09:41:17', kind: 'danger', badge: 'policy', text: 'destructive_delete raised against E:/.../test9 with restorable classification' },
+        { stamp: '09:41:18', kind: 'ok', badge: 'snapshot', text: 'recovery-12a64889e0cd42c4bd53565530ba918c preserved into recovery-vault/recovery-snapshots' },
+        { kind: 'rule' },
+        { stamp: '09:41:22', kind: 'ok', badge: 'restore', text: 'target restored from vault and verified against the expected tree' },
+        { stamp: '09:41:26', kind: 'proof', badge: 'proof', text: 'clawchain-proof-log.v2 exported with batch_seq_no=0 and merkle_root=d5bb8d64...' },
+        { stamp: '09:41:29', kind: 'proof', badge: 'anchor', text: 'evm:31337 confirmed at block=9 with anchor_lookup_found=true' },
+        { stamp: '09:41:31', kind: 'proof', badge: 'verify', text: 'session_id=true · batch_seq_no=true · merkle_root=true' }
+      ],
+      pause: 2800
+    },
+    {
+      title: 'Claude Code / managed handoff',
+      tag: 'validated path',
+      lines: [
+        { stamp: '10:12:02', kind: 'meta', badge: 'discover', text: 'session 11c55c0a-00e9-4e35-b413-ecf5e3709c94 resolved from ~/.claude/sessions' },
+        { stamp: '10:12:05', kind: 'meta', badge: 'handoff', text: 'original terminal separated from the controlled launcher to avoid unmanaged writes' },
+        { stamp: '10:12:10', kind: 'danger', badge: 'policy', text: 'destructive_move detected inside /data/guiyao/openclawchain/Github with recovery plan prepared' },
+        { stamp: '10:12:14', kind: 'ok', badge: 'events', text: 'invoke_event and policy_decision_event persisted into the chain-log' },
+        { stamp: '10:12:19', kind: 'ok', badge: 'restore', text: 'move rolled back from snapshot set and session detail updated in the operator view' },
+        { kind: 'rule' },
+        { stamp: '10:12:24', kind: 'proof', badge: 'proof', text: 'impact_set_id=impact-set-1774595948166 exported with consistent session fingerprint' },
+        { stamp: '10:12:28', kind: 'proof', badge: 'verify', text: 'anchor_status=confirmed · anchor_field_checks all true' }
+      ],
+      pause: 3200
+    },
+    {
+      title: 'Dangerous-Ops Smoke Test Report',
+      tag: 'windows',
+      lines: [
+        { stamp: 'report', kind: 'meta', badge: 'platform', text: 'windows · account=dangerous-ops-windows · root=C:\\Users\\labpc\\AppData\\Local\\Temp\\clawchain-dangerous-ops-1774704579' },
+        { stamp: 'scenario', kind: 'ok', badge: 'pass', text: 'destructive_delete · destructive_move · config_integrity_mutation' },
+        { stamp: 'scenario', kind: 'ok', badge: 'pass', text: 'in_place_file_edit · destructive_truncate · secret_access' },
+        { kind: 'rule' },
+        { stamp: 'chain-log', kind: 'proof', badge: 'events', text: 'invoke_events_ok · policy_decision_events_ok · anchor_receipts_ok · impact_sets_ok' },
+        { stamp: 'counts', kind: 'proof', badge: 'detail', text: 'invoke_events=6 · policy_decision_events=6 · recovery_planned=3 · impact_sets=3' },
+        { stamp: 'result', kind: 'ok', badge: 'summary', text: 'ALL TESTS PASSED' }
+      ],
+      pause: 3400
+    },
+    {
+      title: 'Proof / chain verification',
+      tag: 'evm:31337',
+      lines: [
+        { stamp: '$', kind: 'meta', badge: 'command', text: 'python -m clawchain.agent_proxy_cli proof --account local-operator --limit 1' },
+        { stamp: 'anchor', kind: 'proof', badge: 'status', text: 'anchor_backend=evm:31337 · anchor_mode=evm-anchored · anchor_status=confirmed' },
+        { stamp: 'field', kind: 'proof', badge: 'checks', text: 'session_id=true · batch_seq_no=true · merkle_root=true' },
+        { stamp: 'receipt', kind: 'proof', badge: 'counts', text: 'anchor_receipts_count=6 · impact_sets_count=3 · chain_verify_ok=true' },
+        { kind: 'rule' },
+        { stamp: 'result', kind: 'ok', badge: 'final', text: 'proof trail stayed recoverable, auditable, and verifiable end-to-end' }
+      ],
+      pause: 3600
+    }
   ];
+
+  function buildLine(line) {
+    if (line.kind === 'rule') {
+      return '<div class="stream-line rule"><div class="stream-divider"></div></div>';
+    }
+
+    return [
+      '<div class="stream-line ' + escapeHtml(line.kind || 'meta') + '">',
+      '<div class="stream-stamp">' + escapeHtml(line.stamp || '') + '</div>',
+      '<div class="stream-badge">' + escapeHtml(line.badge || '') + '</div>',
+      '<div class="stream-text">' + escapeHtml(line.text || '') + '</div>',
+      '</div>'
+    ].join('');
+  }
+
+  function renderFrameInstant(frame) {
+    if (!terminalOutput) {
+      return;
+    }
+
+    var html = [
+      '<div class="stream-frame">',
+      '<div class="stream-frame-header">',
+      '<div class="stream-frame-title">' + escapeHtml(frame.title) + '</div>',
+      '<div class="stream-frame-tag">' + escapeHtml(frame.tag) + '</div>',
+      '</div>',
+      '<div class="stream-lines">'
+    ];
+
+    frame.lines.forEach(function (line) {
+      html.push(buildLine(line));
+    });
+
+    html.push('</div></div>');
+    terminalOutput.innerHTML = html.join('');
+    if (terminalWrap) {
+      terminalWrap.scrollTop = 0;
+    }
+  }
 
   if (terminalOutput) {
     if (prefersReducedMotion) {
-      terminalOutput.textContent = frames[0].join(newline);
+      renderFrameInstant(frames[0]);
     } else {
       var frameIndex = 0;
-      var lineDelay = 980;
-      var framePause = 4200;
+      var baseDelay = 820;
 
-      function renderFrame() {
-        var lines = frames[frameIndex];
-        terminalOutput.textContent = '';
+      function renderFrame(frame) {
+        terminalOutput.innerHTML = [
+          '<div class="stream-frame">',
+          '<div class="stream-frame-header">',
+          '<div class="stream-frame-title">' + escapeHtml(frame.title) + '</div>',
+          '<div class="stream-frame-tag">' + escapeHtml(frame.tag) + '</div>',
+          '</div>',
+          '<div class="stream-lines" id="streamLines"></div>',
+          '</div>'
+        ].join('');
+
+        var linesRoot = document.getElementById('streamLines');
         var lineIndex = 0;
 
-        function addLine() {
-          terminalOutput.textContent += lines[lineIndex] + newline;
+        function appendNextLine() {
+          if (!linesRoot) {
+            return;
+          }
+
+          linesRoot.insertAdjacentHTML('beforeend', buildLine(frame.lines[lineIndex]));
           lineIndex += 1;
+
           if (terminalWrap) {
             terminalWrap.scrollTop = terminalWrap.scrollHeight;
           }
-          if (lineIndex < lines.length) {
-            window.setTimeout(addLine, lineDelay);
+
+          if (lineIndex < frame.lines.length) {
+            var nextDelay = frame.lines[lineIndex - 1].delay || baseDelay;
+            window.setTimeout(appendNextLine, nextDelay);
           } else {
             frameIndex = (frameIndex + 1) % frames.length;
-            window.setTimeout(renderFrame, framePause);
+            window.setTimeout(function () {
+              renderFrame(frames[frameIndex]);
+            }, frame.pause || 3200);
           }
         }
 
-        addLine();
+        appendNextLine();
       }
 
-      renderFrame();
+      renderFrame(frames[0]);
     }
   }
 });
