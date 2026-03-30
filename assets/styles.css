@@ -450,10 +450,11 @@ body[data-theme='light'] .theme-toggle-thumb {
 }
 
 .hero-subtitle {
+  max-width: 980px;
   margin: 0;
-  font-family: var(--font-display);
-  font-size: clamp(20px, 3vw, 30px);
-  font-weight: 700;
+  font-size: clamp(18px, 2.3vw, 22px);
+  font-weight: 600;
+  line-height: 1.8;
   color: var(--muted);
 }
 
@@ -476,12 +477,20 @@ body[data-theme='light'] .theme-toggle-thumb {
 .mission-card {
   position: relative;
   overflow: hidden;
-  padding: 24px 22px;
-  border-radius: var(--radius-lg);
+  padding: 24px 22px 26px;
+  border-radius: 28px;
   border: 1px solid var(--border);
-  background: var(--card-strong);
-  box-shadow: var(--shadow-soft);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--bg2) 92%, transparent), color-mix(in srgb, var(--bg1) 96%, transparent));
+  box-shadow: 0 28px 72px -30px rgba(0, 0, 0, 0.34);
   text-align: left;
+}
+
+.mission-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
 }
 
 .mission-card::after {
@@ -499,12 +508,59 @@ body[data-theme='light'] .theme-toggle-thumb {
   background: color-mix(in srgb, var(--danger) 28%, transparent);
 }
 
+.mission-safety .mission-icon {
+  color: var(--danger);
+  background: color-mix(in srgb, var(--danger) 14%, transparent);
+}
+
 .mission-recoverability::after {
   background: color-mix(in srgb, var(--accent-3) 28%, transparent);
 }
 
+.mission-recoverability .mission-icon {
+  color: var(--accent-3);
+  background: color-mix(in srgb, var(--accent-3) 14%, transparent);
+}
+
 .mission-traceability::after {
   background: color-mix(in srgb, var(--accent-2) 28%, transparent);
+}
+
+.mission-traceability .mission-icon {
+  color: var(--accent-2);
+  background: color-mix(in srgb, var(--accent-2) 14%, transparent);
+}
+
+.mission-top {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.mission-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+.mission-kicker {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
 .mission-title {
@@ -1224,30 +1280,114 @@ body[data-theme='light'] .theme-toggle-thumb {
 }
 
 .footer {
-  padding: 38px 0 48px;
+  padding: 56px 0 48px;
   border-top: 1px solid var(--border);
 }
 
-.footer-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
+.footer-shell {
+  display: grid;
+  gap: 24px;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.15fr 0.95fr 0.9fr;
+  gap: 22px;
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--bg2) 90%, transparent), color-mix(in srgb, var(--bg1) 96%, transparent));
+  box-shadow: var(--shadow-soft);
+}
+
+.footer-brand-block {
+  display: grid;
+  gap: 14px;
 }
 
 .footer-brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   font-family: var(--font-display);
+  font-size: 24px;
   font-weight: 800;
+  letter-spacing: -0.04em;
 }
 
-.footer-links {
+.footer-copy {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.footer-column {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+}
+
+.footer-heading {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.footer-links-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.footer-links-grid a {
+  color: var(--text);
+  opacity: 0.88;
+}
+
+.footer-chip-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 18px;
+  gap: 10px;
+}
+
+.footer-chip-row span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 12px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   color: var(--muted);
+  background: rgba(255,255,255,0.03);
+}
+
+.footer-github {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 16px;
+  width: fit-content;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  font-family: var(--font-display);
+  font-weight: 700;
+  background: var(--card);
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 6px;
+  color: var(--muted);
+  font-size: 14px;
 }
 
 .animate-in,
@@ -1411,11 +1551,14 @@ body[data-theme='light'] .theme-toggle-thumb {
     min-height: 520px;
   }
 
-  .footer-inner {
+  .footer-top,
+  .footer-bottom {
+    grid-template-columns: 1fr;
     flex-direction: column;
     align-items: flex-start;
   }
 }
+
 
 @media (prefers-reduced-motion: reduce) {
   html {

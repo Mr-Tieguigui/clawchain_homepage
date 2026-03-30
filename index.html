@@ -11,7 +11,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="icon" href="assets/clawchain-mark.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/ClawChain.png" type="image/png">
   <link rel="stylesheet" href="assets/styles.css">
   <script src="assets/app.js" defer></script>
 </head>
@@ -23,7 +23,7 @@
     <nav class="nav" id="top" aria-label="Main navigation">
       <div class="container nav-inner">
         <a href="#top" class="nav-brand" aria-label="ClawChain homepage">
-          <img src="assets/clawchain-mark.svg" class="nav-icon" alt="ClawChain logo" width="34" height="34">
+          <img src="assets/ClawChain.png" class="nav-icon" alt="ClawChain logo" width="34" height="34">
           <div class="nav-wordmark"><span>Claw</span><span>Chain</span></div>
         </a>
         <button class="nav-mobile-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
@@ -55,9 +55,9 @@
             <div class="hero-logo-halo"></div>
             <div class="hero-logo-orbit hero-logo-orbit-a"></div>
             <div class="hero-logo-orbit hero-logo-orbit-b"></div>
-            <img src="assets/clawchain-mark.svg" alt="ClawChain mark" class="hero-logo" width="168" height="168">
+            <img src="assets/ClawChain.png" alt="ClawChain mark" class="hero-logo" width="168" height="168">
             <h1 class="hero-title">ClawChain</h1>
-            <p class="hero-subtitle">Runtime safety layer for autonomous coding agents.</p>
+            <p class="hero-subtitle">ClawChain为了解决Agent (e.g., OpenClaw)高权限带来的高风险，其中包括：执行不透明、证据易丢失、恢复不完整以及事后难以溯源等核心问题。ClawChain一键解决，提供一个安全的、可恢复、完整溯源的运行环境。</p>
           </div>
 
           <div class="hero-ctas animate-in delay-1">
@@ -68,14 +68,17 @@
 
           <div class="mission-grid animate-in delay-2">
             <article class="mission-card mission-safety">
+              <div class="mission-top"><span class="mission-icon">S</span><span class="mission-kicker">Target 01</span></div>
               <div class="mission-title">Safety</div>
               <div class="mission-copy">Intervene before dangerous agent actions land unchecked.</div>
             </article>
             <article class="mission-card mission-recoverability">
+              <div class="mission-top"><span class="mission-icon">R</span><span class="mission-kicker">Target 02</span></div>
               <div class="mission-title">Recoverability</div>
               <div class="mission-copy">Preserve recovery material and restore operator state coherently.</div>
             </article>
             <article class="mission-card mission-traceability">
+              <div class="mission-top"><span class="mission-icon">T</span><span class="mission-kicker">Target 03</span></div>
               <div class="mission-title">Traceability</div>
               <div class="mission-copy">Export proof, receipts, and anchor checks that can be verified later.</div>
             </article>
@@ -382,15 +385,44 @@
       </section>
 
       <footer class="footer">
-        <div class="container footer-inner">
-          <div class="footer-brand">
-            <img src="assets/clawchain-mark.svg" alt="ClawChain mark" width="24" height="24">
-            <span>ClawChain</span>
+        <div class="container footer-shell">
+          <div class="footer-top">
+            <div class="footer-brand-block">
+              <div class="footer-brand">
+                <img src="assets/ClawChain.png" alt="ClawChain mark" width="28" height="28">
+                <span>ClawChain</span>
+              </div>
+              <p class="footer-copy">A monitored runtime layer for high-privilege agents, built to keep safety, recoverability, and traceability in one coherent operator surface.</p>
+            </div>
+
+            <div class="footer-column">
+              <div class="footer-heading">Sections</div>
+              <div class="footer-links-grid">
+                <a href="#monitor">Live Monitor</a>
+                <a href="#quickstart">Quick Start</a>
+                <a href="#agents">Agents</a>
+                <a href="#operations">Dangerous Operations</a>
+                <a href="#screens">Session Detail</a>
+                <a href="#control">Control Sequence</a>
+              </div>
+            </div>
+
+            <div class="footer-column">
+              <div class="footer-heading">Validated</div>
+              <div class="footer-chip-row">
+                <span>Codex</span>
+                <span>Claude Code</span>
+                <span>Windows</span>
+                <span>Linux</span>
+                <span>EVM 31337</span>
+              </div>
+              <a class="footer-github" href="https://github.com/OpenLAIR/ClawChain" target="_blank" rel="noreferrer">Open on GitHub</a>
+            </div>
           </div>
-          <div class="footer-links">
-            <a href="#monitor">Monitor</a>
-            <a href="#quickstart">Quick Start</a>
-            <a href="#screens">Session Detail</a>
+
+          <div class="footer-bottom">
+            <span>OpenLAIR · ClawChain</span>
+            <span>Runtime safety, recoverability, and traceability for autonomous coding agents.</span>
           </div>
         </div>
       </footer>
